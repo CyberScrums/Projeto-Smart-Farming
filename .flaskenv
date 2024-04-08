@@ -1,1 +1,0 @@
-FLASK_APP=projeto_estufa.py
