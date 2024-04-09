@@ -1,0 +1,50 @@
+.cabecalho {
+    display: flex;
+    align-items: center; 
+    
+
+}
+
+.titulo {
+    color: #5DC47B;
+    font-size: 30px;
+    margin-left: 4%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+    
+    
+
+
+.logo {
+    padding-left: 10px;
+    
+}
+
+.atualização {
+    color: aliceblue;
+    font-size: larger;
+    font-family:Georgia, 'Times New Roman', Times, serif
+   
+}
+
+.corpo {
+    background-color: #262626;
+    background-image: linear-gradient(to bottom, #262626 70% , rgba(93,196,123,0.2) );
+}
+
+.retangulo-grafico {
+    width: 900px;
+    height: 600px;
+    margin-top: 10%;
+    margin-left: 10%;
+    background-color: #262626;
+    border-radius: 10px ;
+    
+}
+
+.linha{
+     border-bottom: 2px solid #5DC47B;
+      
+}
+
+    
