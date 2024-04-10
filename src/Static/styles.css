@@ -39,12 +39,23 @@
     margin-left: 10%;
     background-color: #262626;
     border-radius: 10px ;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1px;
     
 }
 
 .linha{
      border-bottom: 2px solid #5DC47B;
       
+}
+
+.moldura {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    
 }
 
     
