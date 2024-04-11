@@ -11,8 +11,18 @@
     margin-left: 4%;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.subtítulo{
+    font-family: monospace;
+    color: #5DC47B;
+    margin-top: 2%;
+    margin-left: 45%;
+}
     
-    
+.imagem{
+    margin-left: 1%;
+
+}
 
 
 .logo {
@@ -21,29 +31,33 @@
 }
 
 .atualização {
-    color: aliceblue;
+    color: #262626;
     font-size: larger;
-    font-family:Georgia, 'Times New Roman', Times, serif
+    font-family: monospace;
    
 }
 
-.corpo {
+.atconfig{
+    background-color: #dbdbdb;
+}
+
+.body {
     background-color: #262626;
     background-image: linear-gradient(to bottom, #262626 70% , rgba(93,196,123,0.2) );
 }
 
+
 .retangulo-grafico {
     width: 900px;
     height: 600px;
-    margin-top: 10%;
-    margin-left: 10%;
-    background-color: #262626;
+    margin-top: 5%;
+    margin-left: 20%;
     border-radius: 10px ;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1px;
-    
+    background-color: #262626;
 }
 
 .linha{
@@ -52,9 +66,15 @@
 }
 
 .moldura {
-    background-color: #ffffff;
+    background-color: #dbdbdb;
     padding: 20px;
     text-align: center;
+    font-family: monospace;
+    color: #5DC47B;
+    border-radius: 5%;
+    
+    
+    
     
 }
 
