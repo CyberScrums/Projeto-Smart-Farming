@@ -6,9 +6,9 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 1. [Git](https://git-scm.com/downloads): Utilizaremos o Git para clonar o nosso repositório.
 
-2. [Python](https://www.python.org/downloads/): Precisaremos do python, para isso, recomendamos que você instale a versão 3.11, não se esqueça de na hora da instalação, marcar a opção da instalação do pip, pois precisaremos dele para a criação e configuração do ambiente virtual.
+2. [Python](https://www.python.org/downloads/): Precisaremos do python para podermos utilizar de maneira adequada o nosso ambiente virtual, incluímos ele no arquivo requirements, porém sinta-se a vontade caso queira ter uma garantia baixando o python por si só.
 
-3. [MySQL](https://dev.mysql.com/downloads/): Precisaremos também do MySQL para obter a funcionalidade de estatísticas das opções mais utilizadas no filtro.
+3. [Jupyter e Pandas](https://jupyter.org/install): O jupyter é utilizado para poder fazer as tabelas serem carregas e transformarem em gráficos, e a biblioteca pandas será instalada junto com ele, então facilitamos para você e já colocamos tudo que é necessario dentro do arquivo requirements.
 
 ## 1º Passo: Clonando o repositório
 
@@ -35,18 +35,18 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 <details>
   <summary><b>Clique aqui</b></summary>
 
-  1. Estando com o `CMD` aberto, execute os seguintes comandos:
+  1. Após a clonagem, clique com o botão direito na pasta e selecione a opção de abrir com o Terminal, e insira os seguintes comandos :
 
   ```
   python -m venv venv
   venv\Scripts\activate
-  pip install -r requirements.txt
+  pip install -r requirements.txt (lembre-se de dar "cd src" para entrar na pasta e dar o comando)
   ```
 
   > _Caso você esteja em LINUX, digite os comandos desta maneira:_<br>
   `python3 -m venv venv`<br>
   `source venv/bin/activate`<br>
-  `pip install -r requirements.txt`
+  `pip install -r requirements.txt` (lembre-se de dar "cd src" para entrar na pasta e dar o comando)
 
 </details>
 <br>
@@ -57,14 +57,14 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 <details>
   <summary><b>Clique aqui</b></summary>
 
-  1. Ainda dentro do ambiente virtual, execute o seguinte comando:
+  1. Ainda dentro do ambiente virtual e dentro da pasta src, execute o seguinte comando:
   ```
   flask run
   ```
 
   2. Por fim, entre no link que aparecerá no cmd copiando e colando ele no seu navegador de preferência, ou então simplesmente clique aqui: <a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a>
 
-  3. Após finalizar o uso do nosso site, para sair do ambiente virtual, no cmd, execute o atalho `Ctrl+C` para finalizar o serviço do Flask, e então execute o seguinte comando:
+  3. Após finalizar o uso do nosso site, para sair do ambiente virtual, no terminal, execute o atalho `Ctrl+C` para finalizar o serviço do Flask, e então execute o seguinte comando:
   ```
   deactivate
   ```
