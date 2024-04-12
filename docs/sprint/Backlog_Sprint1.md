@@ -1,4 +1,4 @@
-##  [Ir para a tela de início](./../../README.MD)
+##  [Ir para a tela de início](./../../)
 
 
 | ID |     Nome     |     Quem    |                              O que                            |                   Para                  |
