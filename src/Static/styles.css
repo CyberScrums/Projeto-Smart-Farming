@@ -1,3 +1,4 @@
+
 .cabecalho {
     display: flex;
     align-items: center; 
@@ -49,7 +50,7 @@
 
 .retangulo-grafico {
     width: 900px;
-    height: 600px;
+    height: 650px;
     margin-top: 2%;
     margin-left: 20%;
     border-radius: 10px ;
@@ -71,13 +72,23 @@
     text-align: center;
     font-family: monospace;
     color: #22b14c;
-    border-radius: 5%;
-    
-    
-    
-    
-}
+    border-radius: 5%;}
 
 .corbotão{
 background-color: #22b14c;
 }
+
+.moldura .volume{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5% ;
+}
+
+.moldura .temperatura{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5%;
+}
+
