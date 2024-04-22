@@ -50,7 +50,7 @@
 
 .retangulo-grafico {
     width: 900px;
-    height: 650px;
+    height: 700px;
     margin-top: 2%;
     margin-left: 20%;
     border-radius: 10px ;
@@ -92,3 +92,16 @@ background-color: #22b14c;
     border-radius: 5%;
 }
 
+.moldura .umidadesolo{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5%
+}
+
+.moldura .umidadeambiente{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5%
+}
