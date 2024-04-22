@@ -13,7 +13,7 @@
 - [Tecnologias utilizadas](#tecnologias)
 - [MVP](#mvp)
 - [Product Backlog](#backlog)
-- [equipe](#equipe)
+- [Equipe](#equipe)
 
 ## 👁 Visão do Projeto <a name="visao-do-projeto"></a>
 <p> Nosso projeto consiste em uma integração com o <a href="https://github.com/team-i9/Projeto-Smart-Farming">projeto Smart Farming do grupo Inove de Manufatura Avançada</a>, atualmente no projeto eles utilizam sensores para captação de dados e fazem o tratamento desses dados de forma manual, a ideia do nosso projeto é desenvolver um site que fará integração com os dados dos sensores e fará o tratamento dos dados de forma totalmente automática, com uma interface amigável e gráficos para fácil entendimento e melhor eficiência aos cuidados da Smart Farming.
