@@ -16,7 +16,7 @@
 <body>
     <div class="body">
         <div class="cabecalho">
-            <img class="imagem" src="/static/imagens/image.png" height="90px" alt="logo da equipe I9">
+            <img class="imagem" src="/Static/image/image.png" height="90px" alt="logo da equipe I9">
             <h1 class="titulo">PROJETO SMART FARM</h1> <!--O código da cor verde é #5DC47B-->
             <!--
             <div class="buttonconfig">
@@ -40,6 +40,23 @@
                     data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                     Atualização
                 </button>
+                <input type="file" class="btn btn-success corbotão" id="uploadBtn" accept=".csv" onchange="checkFileType(this)">
+                <label class="btn btn-success corbotão" for="uploadBtn">Selecionar Arquivo</label>
+                
+                <script>
+                function checkFileType(input) {
+                    const file = input.files[0];
+                    
+                    // Verifica se um arquivo foi selecionado e se o tipo de arquivo não é CSV
+                    if (file && !file.name.endsWith('.csv')) {
+                        alert('Por favor, selecione apenas arquivos CSV!');
+                        input.value = ''; //Limpa a seleção do arquivo
+                    }
+                }
+                </script>
+                
+
+
             </p>
             <div style="min-height: 120px;">
                 <div class="collapse collapse-horizontal" id="collapseWidthExample">
@@ -58,19 +75,19 @@
             <div class=" retangulo-grafico">
                 <div class="moldura">
                     <button type="button" class="btn btn-success corbotão">Volume da Água</button>
-                    <img class="volume" src="/static/imagens/Volume de Água.png" alt="volume">
+                    <img class="volume" src="/Static/image/Volume_de_Agua.png" alt="volume">
                 </div>
                 <div class="moldura">
                     <button type="button" class="btn btn-success corbotão">Temperatura</button>
-                    <img class="temperatura" src="/static/imagens/Temperatura.png" alt="agua">
+                    <img class="temperatura" src="/Static/image/Temperatura.png" alt="agua">
                 </div>
                 <div class="moldura">
                     <button type="button" class="btn btn-success corbotão">Umidade Ambiente</button>
-                    <img class="umidadeambiente" src="/static/imagens/Umidade ambiente.png" alt="">
+                    <img class="umidadeambiente" src="/Static/image/Umidade ambiente.png" alt="">
                 </div>
                 <div class="moldura">
                     <button type="button" class="btn btn-success corbotão">Umidade do Solo</button>
-                    <img class="umidadesolo" src="/static/imagens/Umidade Solo.png" alt="">
+                    <img class="umidadesolo" src="/Static/image/Umidade Solo.png" alt="">
                 </div>
                 <!--essa div sera utilizada para criar o retangulo preto que fica ao fundo do grafico, você irá altera-lo e fazer sua aparência pelo CSS3, a div é apenas para criar uma box onde ele possa ser mexido
             
