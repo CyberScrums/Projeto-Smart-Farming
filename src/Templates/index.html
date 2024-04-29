@@ -5,99 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estufa Artificial</title>
+<!--link do bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/styles.css">
-    <link rel="stylesheet" href="/static/normalize.css">
-
-    <!--o link 'Script' vai ser utilizado para adicionar o dashboard ao site, junto com o canvas dentro do body-->
+<!--link das fontes usadas-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<!--fonte 2-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Press+Start+2P&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<!--fonte 3-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+<!--css-->
+<link rel="shortcut icon" href="/static/image/ico.ico" type="image/x-icon">       
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="stylesheet" href="/static/normalize.css">
+<!--o link 'Script' vai ser utilizado para adicionar o dashboard ao site, junto com o canvas dentro do body-->
 </head>
 
 <body>
+    <div class="cabecalho">
+        <img class="imagem" src="/static/image/image.png" height="90px" alt="logo da equipe I9">
+        <h1 class="titulo rubik-mono-one-regular">PROJETO SMART FARM</h1> <!--O código da cor verde é #5DC47B-->
+    <!--botões das páginas-->
+    <div class="flex">
+        <a href="index.html">
+            <button type="button" class="btn btn-success botao silkscreen-regular silkscreen-bold">INÍCIO</button>
+        </a>
+        <a href="graficos.html">
+            <button type="button" class="btn btn-success botao silkscreen-regular silkscreen-bold">GRÁFICOS</button>
+        </a>
+    </div>    
+    </div>
+    <div class="linha"></div>
+
     <div class="body">
-        <div class="cabecalho">
-            <img class="imagem" src="/Static/image/image.png" height="90px" alt="logo da equipe I9">
-            <h1 class="titulo">PROJETO SMART FARM</h1> <!--O código da cor verde é #5DC47B-->
-            <!--
-            <div class="buttonconfig">
-            <a href="index.html">
-                <button type="button" class="btn btn-outline-success">Início</button>
-            </a>
-            <a href="graficos.html">
-                <button type="button" class="btn btn-outline-success">Gráficos</button>
-            </a>
-        </div>    
-        
-        funcionalidade comentada, para futuras sprints
-        -->
-        </div>
-        <div class="linha"></div>
-
-        <div class="atualização">
-            <!--teste do colapse-->
-            <p>
-                <button class="btn btn-success corbotão" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                    Atualização
-                </button>
-                <input type="file" class="btn btn-success corbotão" id="uploadBtn" accept=".csv" onchange="checkFileType(this)">
-                <label class="btn btn-success corbotão" for="uploadBtn">Selecionar Arquivo</label>
-                
-                <script>
-                function checkFileType(input) {
-                    const file = input.files[0];
-                    
-                    // Verifica se um arquivo foi selecionado e se o tipo de arquivo não é CSV
-                    if (file && !file.name.endsWith('.csv')) {
-                        alert('Por favor, selecione apenas arquivos CSV!');
-                        input.value = ''; //Limpa a seleção do arquivo
-                    }
-                }
-                </script>
-                
-
-
-            </p>
-            <div style="min-height: 120px;">
-                <div class="collapse collapse-horizontal" id="collapseWidthExample">
-                    <div class="card card-body atconfig" style="width: 300px;">
-                        Atualizado em: dd/mm/aaaa <br>
-                        às hh:mm
-                        <!--Isto também será feito para que se torna um dado interativo, que irá mudar de acordo com a entrada de informações-->
-                    </div>
-                </div>
+        <div class="flex2">
+        <!--imagem da estufa-->
+        <img  src="/static/image/carousel1.webp" class="carrosel" alt="PROJETO">  
+        <!--div para as informações-->
+        <div class="div">
+            <h1 class="subtítulo silkscreen-regular silkscreen-bold">FUNCIONALIDADES</h1>
+            <h2 class="texto concert-one-regular">Este site possui algumas funcionalidades que podem ajudar os usuários
+                a visualizar de uma maneira fácil os dados da estufa. Essas funcionalidades incluem: botões de navegação,
+                botões para input de dados, e também botões para os filtros dos Gráficos. Bora conferir?
+            </h2>
+            <div class="botaozinhome">
+                <a href="graficos.html">
+                    <button type="button" class="btn btn-success botao silkscreen-regular silkscreen-bold">GRÁFICOS</button>
+                </a>
             </div>
-            <!--fim do teste colapse -->
+
         </div>
+        </div>
+        <!--rodapé-->
+        <div class="rodapé"></div>
+    </div>
 
-        <h1 class="subtítulo">Gráficos</h1>
-        <div>
-            <div class=" retangulo-grafico">
-                <div class="moldura">
-                    <button type="button" class="btn btn-success corbotão">Volume da Água</button>
-                    <img class="volume" src="/Static/image/Volume_de_Agua.png" alt="volume">
-                </div>
-                <div class="moldura">
-                    <button type="button" class="btn btn-success corbotão">Temperatura</button>
-                    <img class="temperatura" src="/Static/image/Temperatura.png" alt="agua">
-                </div>
-                <div class="moldura">
-                    <button type="button" class="btn btn-success corbotão">Umidade Ambiente</button>
-                    <img class="umidadeambiente" src="/Static/image/Umidade ambiente.png" alt="">
-                </div>
-                <div class="moldura">
-                    <button type="button" class="btn btn-success corbotão">Umidade do Solo</button>
-                    <img class="umidadesolo" src="/Static/image/Umidade Solo.png" alt="">
-                </div>
-                <!--essa div sera utilizada para criar o retangulo preto que fica ao fundo do grafico, você irá altera-lo e fazer sua aparência pelo CSS3, a div é apenas para criar uma box onde ele possa ser mexido
-            
-            Sua cor é #262626; e o seu tamanho como está no wireframe é width 1118px e height 567px-->
-
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
                 crossorigin="anonymous"></script>
-        </div>
 </body>
 
 </html>
