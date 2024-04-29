@@ -1,0 +1,192 @@
+body {
+    background-color: #202020;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center; 
+    border: solid;
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
+    height: 120px;
+    width: 1550px;
+
+}
+
+.titulo {
+    color: #1db954;
+    font-size: 50px;
+    margin-left: 4%;
+}
+
+.rubik-mono-one-regular {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.subtítulo{
+    color: aliceblue;
+    margin-top: 1%;
+    text-align: center;
+}
+
+.silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .silkscreen-bold {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+    
+.imagem{
+    margin-left: 1%;
+
+}
+
+
+.logo {
+    padding-left: 10px;
+    
+}
+
+.selec_arq {
+    color: #ffffff;
+    font-size: larger;
+    font-family: monospace;
+    margin-top: 1%;
+   
+}
+
+.atconfig{
+    background-color: #313131;
+}
+
+
+.retangulo-grafico {
+    width: 900px;
+    height: 700px;
+    margin-top: 2%;
+    margin-left: 20%;
+    border-radius: 10px ;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1px;
+    
+}
+
+.linha{
+     border-bottom: 2px solid #1db954;
+      
+}
+
+.moldura {
+    background-color: #313131;
+    padding: 20px;
+    text-align: center;
+    font-family: monospace;
+    color: #1db954;
+    border-radius: 5%;}
+
+.corbotão{
+background-color: #1db954;
+margin-left: 1%;
+margin-top: 1px;
+}
+
+.moldura .volume{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5% ;
+}
+
+.moldura .temperatura{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5%;
+}
+
+.moldura .umidadesolo{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5%
+}
+
+.moldura .umidadeambiente{
+    padding: 1%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5%
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    margin-left: 24%;
+}
+
+.botao{
+    background-color: #1db954;
+}
+
+.carrosel{
+    border: solid;
+    border-color: #1db954;
+    margin-left: 3%;
+    width: 700px;
+    height: 400px;
+}
+
+.atualização{
+    margin-top: 5%;
+    margin-left: 1%;
+    color: aliceblue;
+}
+
+.concert-one-regular {
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.div{
+    background-color: black;
+    margin-left: 2%;
+    border: solid;
+    border-color: #1db954;
+    width: 700px;
+    height: 400px;}
+
+.flex2{
+    display: flex;
+    margin-top: 7%;
+}
+
+.texto{
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: center;
+    color: aliceblue;
+}
+
+.botaozinhome{
+    margin-left: 42%;
+}
+
+.rodapé{
+    margin-top: 15%;
+}
+  
