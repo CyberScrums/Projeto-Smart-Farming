@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
         container: document.getElementById("temperature-chart"),
         data: temperatureData,
         title: {
-            text: "Temperatura ao Longo do Ano (°C)",
+            text: "Temperatura (°C)",
         },
         ...commonOptions,
         series: [
