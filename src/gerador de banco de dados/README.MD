@@ -1,5 +1,5 @@
 Como usar:
-Dendo da pasta "gerador de banco de dados" há 3 pastas:
+Dentro da pasta "gerador de banco de dados" há 3 pastas:
 -dados
   Pasta que contem os dados em .csv que serão trazidos da estufa, os dados ali presentes ainda não são os dados atualizados.
 -sql
