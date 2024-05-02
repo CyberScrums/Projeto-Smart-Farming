@@ -1,30 +1,29 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Dados para cada gráfico
     const temperatureData = [
-        { date: new Date(2022, 0, 1), temperature: 10 },
-        { date: new Date(2022, 1, 1), temperature: 12 },
-        { date: new Date(2022, 2, 1), temperature: 15 },
-        { date: new Date(2022, 3, 1), temperature: 18 },
-        { date: new Date(2022, 4, 1), temperature: 22 },
-        { date: new Date(2022, 5, 1), temperature: 25 },
+        { date: new Date(2022, 0, 1), temperature: 32 },
+        { date: new Date(2022, 1, 1), temperature: 29 },
+        { date: new Date(2022, 2, 1), temperature: 26 },
+        { date: new Date(2022, 3, 1), temperature: 35 },
+        { date: new Date(2022, 4, 1), temperature: 40 },
+        { date: new Date(2022, 5, 1), temperature: 28 },
     ];
     
     const waterVolumeData = [
         { date: new Date(2022, 0, 1), volume: 50 },
-        { date: new Date(2022, 1, 1), volume: 55 },
-        { date: new Date(2022, 2, 1), volume: 60 },
+        { date: new Date(2022, 1, 1), volume: 12 },
+        { date: new Date(2022, 2, 1), volume: 40 },
         { date: new Date(2022, 3, 1), volume: 65 },
-        { date: new Date(2022, 4, 1), volume: 70 },
-        { date: new Date(2022, 5, 1), volume: 75 },
+        { date: new Date(2022, 4, 1), volume: 120 },
+        { date: new Date(2022, 5, 1), volume: 76 },
     ];
     
     const humidityData = [
-        { date: new Date(2022, 0, 1), humidity: 30 },
-        { date: new Date(2022, 1, 1), humidity: 35 },
-        { date: new Date(2022, 2, 1), humidity: 40 },
-        { date: new Date(2022, 3, 1), humidity: 45 },
-        { date: new Date(2022, 4, 1), humidity: 50 },
-        { date: new Date(2022, 5, 1), humidity: 55 },
+        { date: new Date(2022, 0, 1), humidity: 40 },
+        { date: new Date(2022, 1, 1), humidity: 65 },
+        { date: new Date(2022, 2, 1), humidity: 36 },
+        { date: new Date(2022, 3, 1), humidity: 51 },
+        { date: new Date(2022, 4, 1), humidity: 23 },
+        { date: new Date(2022, 5, 1), humidity: 46 },
     ];
     
     const soilMoistureData = [
@@ -36,9 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
         { date: new Date(2022, 5, 1), moisture: 45 },
     ];
     
-    // Opções comuns para todos os gráficos
     const commonOptions = {
-        background: 'rgba(0, 0, 0, 0)', // Fundo transparente
+        background: 'rgba(0, 0, 0, 0)', 
         axes: [
             {
                 type: "time",
@@ -65,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ],
     };
     
-    // Criar o gráfico de temperatura com fundo transparente
     agCharts.AgChart.create({
         container: document.getElementById("temperature-chart"),
         data: temperatureData,
@@ -83,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ],
     });
     
-    // Criar o gráfico de volume de água
     agCharts.AgChart.create({
         container: document.getElementById("water-volume-chart"),
         data: waterVolumeData,
@@ -101,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ],
     });
     
-    // Criar o gráfico de umidade ambiente
     agCharts.AgChart.create({
         container: document.getElementById("humidity-chart"),
         data: humidityData,
@@ -114,12 +109,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 ...commonOptions.series[0],
                 yKey: "humidity",
                 yName: "Umidade (%)",
-                fill: 'rgba(220, 220, 220, 0.8)',
+                fill: 'rgba(122, 172, 33, 0.8)',
             },
         ],
     });
-    
-    // Criar o gráfico de umidade do solo
     agCharts.AgChart.create({
         container: document.getElementById("soil-moisture-chart"),
         data: soilMoistureData,
