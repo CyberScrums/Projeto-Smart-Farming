@@ -8,7 +8,6 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 2. [Python](https://www.python.org/downloads/): Precisaremos do python para podermos utilizar de maneira adequada o nosso ambiente virtual, incluímos ele no arquivo requirements, porém sinta-se a vontade caso queira ter uma garantia baixando o python por si só.
 
-3. [Jupyter e Pandas](https://jupyter.org/install): O jupyter é utilizado para poder fazer as tabelas serem carregas e transformarem em gráficos, e a biblioteca pandas será instalada junto com ele, então facilitamos para você e já colocamos tudo que é necessario dentro do arquivo requirements.
 
 ## 1º Passo: Clonando o repositório
 
