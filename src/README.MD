@@ -39,7 +39,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
   ```
   python -m venv venv
   venv\Scripts\activate
-  pip install -r requirements.txt (lembre-se de dar "cd src" para entrar na pasta e dar o comando)
+  pip install -r requirements.txt (lembre-se de dar primeiro "cd Projeto-Smart-Farm" e em seguida dar "cd src" para entrar na pasta e dar o comando)
   ```
 
   > _Caso você esteja em LINUX, digite os comandos desta maneira:_<br>
