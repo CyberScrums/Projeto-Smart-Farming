@@ -46,7 +46,8 @@ body {
 
 .silkscreen-regular,
 .silkscreen-bold {
-    font-family: "Silkscreen", sans-serif;
+    font-family: "Concert One", sans-serif;
+    font-size: 20px;
 }
 
 .imagem {
@@ -137,7 +138,7 @@ input[type="file"] {
 
 .concert-one-regular {
     font-family: "Concert One", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .flex2 {
@@ -212,7 +213,6 @@ input[type="file"] {
         text-align: left;
     }
 }
-
 
 
 
