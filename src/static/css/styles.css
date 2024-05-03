@@ -1,22 +1,5 @@
 /* CSS base */
 /* Reset do box-sizing e margem/preenchimento padrão */
-
-/* criação de variáveis para cor e fonte */
-:root{
-    --cor-fundo: #202020;
-    --cor-cabecalho: #000;
-    --cor-secundaria: #1db954;
-    --cor-texto: #FFF;
-    --cor-textoII: aliceblue;
-    --cor-moldura: #313131;
-
-    --fonte-padrao: Arial, sans-serif;
-    --fonte-nome-projeto: "Bebas Neue", sans-serif;
-    --fonte-sub-titulo: "Silkscreen", sans-serif;
-    --fonte-selec-arq: monospace;
-    --fonte-explicacap-site: "Concert One", sans-serif
-
-}
 * {
     margin: 0;
     padding: 0;
@@ -24,19 +7,18 @@
 }
 
 body {
-    background-color: var(--cor-fundo);
-    font-family: var(--fonte-padrao); /* Defina uma fonte padrão */
-    height: 100vh;
+    background-color: #202020;
+    font-family: Arial, sans-serif;
 }
 
 .cabecalho {
     display: flex;
     align-items: center;
-    justify-content:space-between;
-    background-color: var(--cor-cabecalho);
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
     padding: 10px;
     border: none; /* Remover a borda */
-    /* justify-content: flex-end; Alinhar os botões à direita */
+    justify-content: flex-end; /* Alinhar os botões à direita */
 }
 
 .botoes-nav {
@@ -47,25 +29,25 @@ body {
 .titulo {
     font-size: 3rem; /* Define o tamanho da fonte do título */
     max-width: 90%; /* Define a largura máxima do título */
-    color: var(--cor-secundaria);
+    color: #1db954;
     margin-right: 55%;
 }
 .bebas-neue-regular {
-    font-family: var(--fonte-nome-projeto);
-    font-weight: 400;
-    font-style: normal;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;/* CSS base */
 }
 
 .subtitulo {
-    color: var(--cor-texto);
+    color: #1db954;
     margin-top: 1%; /* Ajuste a margem superior para 3% */
     text-align: center;
 }
 
-.silkscreen-regular,
-.silkscreen-bold {
-    font-family: var(--fonte-sub-titulo);
-}
+.archivo-black-regular {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 .imagem {
     margin-right: 3%;
@@ -73,10 +55,15 @@ body {
 }
 
 .selec_arq {
-    color: var(--cor-texto);
+    color: #ffffff;
     font-size: larger;
-    font-family: var(--fonte-selec-arq);
+    font-family: monospace;
     margin-top: 1%;
+    align-items: left;
+}
+
+.titulo-graficos {
+    text-align: center;
 }
 
 .atconfig {
@@ -95,20 +82,20 @@ body {
 }
 
 .linha {
-    border-bottom: 2px solid var(--cor-secundaria);
+    border-bottom: 2px solid #1db954;
 }
 
 .moldura {
-    background-color: var(--cor-moldura);
+    background-color: #313131;
     padding: 20px;
     text-align: center;
-    font-family: var(--fonte-selec-arq);
-    color: var(--cor-secundaria);
+    font-family: monospace;
+    color: #1db954;
     border-radius: 5%;
 }
 
 .corbotão {
-    background-color: var(--cor-secundaria);
+    background-color: #1db954;
     margin-left: 1%;
     margin-top: 1px;
 }
@@ -135,26 +122,26 @@ input[type="file"] {
 }
 
 .botao {
-    background-color: var(--cor-secundaria);
+    background-color: #1db954;
     margin-right: 10px;
 }
 
 .carrosel {
     border: solid;
-    border-color: var(--cor-secundaria);
+    border-color: #1db954;
     max-width: 100%;
     height: auto;
     margin: -3% auto 1% auto; /* Ajuste a margem superior para 4% */
 }
 
 .atualização {
-    margin-top: 35%;
-    margin-left: 1%;
-    color: var(--cor-texto);
+    margin-top: 3%; /* Adiciona uma margem superior */
+    color: white;
+    text-align: center; /* Alinha o texto ao centro */
 }
 
 .concert-one-regular {
-    font-family: var(--fonte-explicacap-site);
+    font-family: "Concert One", sans-serif;
     font-weight: 400;
 }
 
@@ -170,21 +157,81 @@ input[type="file"] {
     margin-left: 20%;
     margin-right: 20%;
     text-align: center;
-    color: var(--cor-textoII);
-    font-size: 25px;
+    color: aliceblue;
+    font-size: 250%;
     justify-content: space-between;
 }
 
 .botaozinhome {
-    margin-top: 2%;
+    margin-top: 3%;
     align-items: center;
 }
+
+.chart-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os gráficos */
+    margin-bottom: 20px; /* Adiciona uma margem inferior */
+}
+
+
+.chart-container {
+    height: 400px;
+    width: 500px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2); /* Cor de fundo com transparência */
+    border-radius: 10px;
+    overflow: hidden; /* Evita que os gráficos ultrapassem os limites do contêiner */
+}
+
+.chart-label {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    color: #1db954; /* Cor do rótulo */
+}
+
+.body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rodapé{
+    margin-bottom: 3%;
+}
+
 /* Regras @media para tornar o cabeçalho responsivo em dispositivos móveis */
+@media only screen and (max-width: 1024px) {
+    .titulo {
+        margin-right: 4%;
+        font-size: 1.8rem; /* Reduzir o tamanho da fonte */
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .titulo {
+        margin-right: 42%;
+        font-size: 1.5rem; /* Reduzir o tamanho da fonte */
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .titulo {
+        margin-right: 40%;
+        font-size: 1.3rem; /* Reduzir o tamanho da fonte */
+        text-align: left;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .cabecalho {
         padding: 5px; /* Reduzir o preenchimento */
-
-
     }
 
     .titulo {
@@ -208,51 +255,27 @@ input[type="file"] {
         margin-top: 8%;
     }
 
-    .retangulo-grafico{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .titulo {
-        margin-right: 40%;
-        font-size: 1.3rem; /* Reduzir o tamanho da fonte */
-        text-align: left;
+    .atualização{
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 70%;
     }
 
-    .retangulo-grafico{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-
-@media only screen and (max-width: 820px) {
-    .titulo {
-        margin-right: 42%;
-        font-size: 1.5rem; /* Reduzir o tamanho da fonte */
-        text-align: left;
+    .texto{
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 180%;
     }
 
-    .retangulo-grafico{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .titulo {
-        margin-right: 4%;
-        font-size: 1.8rem; /* Reduzir o tamanho da fonte */
-        text-align: left;
+    .carrosel{
+        width: 80%;
+        height: 70%;
+        margin-top: 3%;
+        margin-bottom: 3%;
     }
 
-    .retangulo-grafico{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+    .chart-container{
+        width: 300px;
+        height: 200px;
     }
 }
