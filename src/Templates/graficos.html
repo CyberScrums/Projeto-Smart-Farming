@@ -14,10 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Concert+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Press+Start+2P&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="/static/image/ico.ico" type="image/x-icon">       
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="stylesheet" href="/static/css/normalize.css">
@@ -30,10 +31,10 @@
         <!-- Botões de navegação -->
         <div class="flex">
             <a href="index.html">
-                <button type="button" class="btn btn-success botao archivo-black-regular botoes-nav">INÍCIO</button>
+                <button type="button" class="btn btn-success botao silkscreen-regular silkscreen-bold botoes-nav">INÍCIO</button>
             </a>
             <a href="graficos.html">
-                <button type="button" class="btn btn-success botao archivo-black-regular botoes-nav">GRÁFICOS</button>
+                <button type="button" class="btn btn-success botao silkscreen-regular silkscreen-bold botoes-nav">GRÁFICOS</button>
             </a>
         </div>
     </div>
@@ -45,7 +46,7 @@
         <div class="selec_arq">
             <p>
                 <input type="file" class="btn btn-success corbotão" id="uploadBtn" accept=".csv" onchange="checkFileType(this)">
-                <label class="btn btn-success corbotão archivo-black-regular" for="uploadBtn">SELECIONAR ARQUIVOS</label>
+                <label class="btn btn-success corbotão silkscreen-regular silkscreen-bold" for="uploadBtn">Selecionar Arquivo</label>
                 
                 <script>
                 function checkFileType(input) {
@@ -58,17 +59,16 @@
                 }
                 </script>
             </p>
-        <!--gráficos-->
-            <h1 class="subtitulo archivo-black-regular titulo-graficos">GRÁFICOS</h1>
+            <h1 class="subtitulo silkscreen-regular silkscreen-bold titulo-graficos">Gráficos</h1>
             <div class="chart-grid">
-            <div id="temperature-chart" class="chart-container"></div>
-            <div id="water-volume-chart" class="chart-container"></div>
-            <div id="humidity-chart" class="chart-container"></div>
-            <div id="soil-moisture-chart" class="chart-container"></div>
-            </div>
+            <canvas id="temperature-chart" class="chart-container" width="400" height="400"></canvas>
+            <canvas id="water-volume-chart" class="chart-container" width="400" height="400"></canvas>
+            <canvas id="humidity-chart" class="chart-container" width="400" height="400"></canvas>
+            <canvas id="soil-moisture-chart" class="chart-container" width="400" height="400"></canvas>
+        </div>
     <div class="rodapé">
     <div class="atualização">
-        <h1 class="concert-one-regular">Atualizado em: dd/mm/aaaa <br>
+        <h1 class="silkscreen-regular silkscreen-bold">Atualizado em: dd/mm/aaaa <br>
                         às hh:mm </h1>
         </div>
     </div> 
@@ -76,6 +76,6 @@
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
                 crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/ag-charts-community@9.3.1/dist/umd/ag-charts-community.js"></script>
-    <script src="/static/javascript/graficos.js"></script>
+    <script src="/static/javascript/graficos-botao.js"></script>
 </body>
 </html>
