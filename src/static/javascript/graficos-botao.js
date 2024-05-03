@@ -1,84 +1,136 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("uploadBtn").addEventListener("change", function(event) {
-        const file = event.target.files[0];  // Obter o arquivo CSV
+        const file = event.target.files[0];  
         const reader = new FileReader();
 
         reader.onload = function(e) {
-            const csvData = e.target.result;  // Conteúdo do CSV como string
-            const rows = csvData.split("\n");  // Dividir em linhas
+            const csvData = e.target.result; 
+            const rows = csvData.split("\n");  
 
-            const labels = [];  // Para os rótulos do eixo x
-            const temperatureData = [];  // Dados para temperatura
-            const soilMoistureData = [];  // Dados para umidade do solo
-            const humidityData = [];  // Dados para umidade do ambiente
-            const waterVolumeData = [];  // Dados para volume de água
+            const labels = [];  
+            const temperatureData = []; 
+            const soilMoistureData = [];  
+            const humidityData = [];  
+            const waterVolumeData = [];  
 
+            let fixedDate = "";  
             rows.forEach((row, index) => {
-                if (index === 0) return;  // Ignorar cabeçalho
-                const columns = row.split(",");  // Dividir em colunas
-                if (columns.length >= 7) {  // Certificar-se de que há colunas suficientes
-                    const dateLabel = `${columns[0]} ${columns[1]} ${columns[2]}`;  // Dia da semana, data, hora
-                    labels.push(dateLabel);  // Adicionar ao eixo x
+                if (index === 0) return;  
+                const columns = row.split(",");  
+                if (columns.length >= 7) {  
+                    const timeLabel = `${columns[2]}`;  
+                    labels.push(timeLabel);  
 
-                    temperatureData.push(parseFloat(columns[3]));  // Temperatura
-                    soilMoistureData.push(parseFloat(columns[4]));  // Umidade do solo
-                    humidityData.push(parseFloat(columns[5]));  // Umidade do ambiente
-                    waterVolumeData.push(parseFloat(columns[6]));  // Volume de água
+                    if (!fixedDate) {  
+                        fixedDate = columns[1];  
+                    }
+
+                    temperatureData.push(parseFloat(columns[5].replace(/"/g, '')));  
+                    soilMoistureData.push(parseFloat(columns[3]));  
+                    humidityData.push(parseFloat(columns[4])); 
+                    waterVolumeData.push(parseFloat(columns[6]));  
                 }
             });
 
-            // Criar gráfico de temperatura
+            const commonOptions = {
+                scales: {
+                    x: {
+                        type: "category", 
+                        ticks: {
+                            color: "white",  
+                            maxTicksLimit: 10, 
+                        },
+                    },
+                    y: {
+                        beginAtZero: true, 
+                        ticks: {
+                            color: "white",  
+                        },
+                    },
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'nearest',  
+                        intersect: false, 
+                        callbacks: {
+                            label: function(context) {
+                                return `Valor: ${context.parsed.y}`; 
+                            },
+                        },
+                    },
+                    legend: {
+                        display: true,  
+                        labels: {
+                            color: "white",  
+                        },
+                    },
+                    title: {
+                        display: true,
+                        text: `Data: ${fixedDate}`,  
+                        position: 'bottom',  
+                        color: "white",
+                    },
+                },
+            };
+
+            
             const ctx1 = document.getElementById("temperature-chart").getContext("2d");
             new Chart(ctx1, {
-                type: "line",  // Tipo de gráfico
+                type: "line",
                 data: {
-                    labels: labels,
+                    labels: labels, 
                     datasets: [
                         {
                             label: "Temperatura (°C)",
-                            data: temperatureData,  // Dados de temperatura
-                            borderColor: "rgba(236, 182, 83, 1)",  // Cor da linha
-                            backgroundColor: "rgba(236, 182, 83, 0.2)",  // Cor do preenchimento
+                            data: temperatureData,  
+                            borderColor: "rgba(255,255,51, 1)",  
+                            backgroundColor: "rgba(255,255,51, 0.6)",  
+                            fill: true,  
+                            pointRadius: 0,  
                         },
                     ],
                 },
+                options: commonOptions,
             });
 
-            // Criar gráfico de umidade do solo
             const ctx2 = document.getElementById("soil-moisture-chart").getContext("2d");
             new Chart(ctx2, {
                 type: "line",
                 data: {
-                    labels: labels,
+                    labels: labels,  
                     datasets: [
                         {
                             label: "Umidade do Solo (%)",
-                            data: soilMoistureData,  // Dados de umidade do solo
-                            borderColor: "rgba(160, 82, 45, 1)",  // Cor da linha
-                            backgroundColor: "rgba(160, 82, 45, 0.2)",  // Cor do preenchimento
+                            data: soilMoistureData, 
+                            borderColor: "rgba(255,51,51, 1)",
+                            backgroundColor: "rgba(255,51,51, 0.6)",
+                            fill: true, 
+                            pointRadius: 0,
                         },
                     ],
                 },
+                options: commonOptions,
             });
 
-            // Criar gráfico de umidade do ambiente
             const ctx3 = document.getElementById("humidity-chart").getContext("2d");
             new Chart(ctx3, {
                 type: "line",
                 data: {
-                    labels: labels,
+                    labels: labels, 
                     datasets: [
                         {
                             label: "Umidade do Ambiente (%)",
-                            data: humidityData,  // Dados de umidade do ambiente
-                            borderColor: "rgba(122, 172, 33, 1)",  // Cor da linha
-                            backgroundColor: "rgba(122, 172, 33, 0.2)",  // Cor do preenchimento
+                            data: humidityData, 
+                            borderColor: "rgba(122,172,33, 1)",
+                            backgroundColor: "rgba(122,172,33, 0.6)",
+                            fill: true, 
+                            pointRadius: 0,
                         },
                     ],
                 },
+                options: commonOptions,
             });
 
-            // Criar gráfico de volume de água
             const ctx4 = document.getElementById("water-volume-chart").getContext("2d");
             new Chart(ctx4, {
                 type: "line",
@@ -87,16 +139,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     datasets: [
                         {
                             label: "Volume de Água (Litros)",
-                            data: waterVolumeData,  // Dados de volume de água
-                            borderColor: "rgba(0, 191, 255, 1)",  // Cor da linha
-                            backgroundColor: "rgba(0, 191, 255, 0.2)",  // Cor do preenchimento
+                            data: waterVolumeData, 
+                            borderColor: "rgba(0,191,255, 1)",  
+                            backgroundColor: "rgba(0,191,255, 0.6)",
+                            fill: true,  
+                            pointRadius: 0,
                         },
                     ],
                 },
+                options: commonOptions,
             });
-        };
 
-        // Ler o arquivo CSV como texto
-        reader.readAsText(file);
-    });
-});
+        }; 
+
+        reader.readAsText(file);  
+    }); 
+});  
