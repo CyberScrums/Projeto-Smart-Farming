@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Concert+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Press+Start+2P&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
@@ -30,10 +30,10 @@
         <!-- Botões de navegação -->
         <div class="flex">
             <a href="index.html">
-                <button type="button" class="btn btn-success botao silkscreen-regular silkscreen-bold botoes-nav">INÍCIO</button>
+                <button type="button" class="btn btn-success botao archivo-black-regular botoes-nav">INÍCIO</button>
             </a>
             <a href="graficos.html">
-                <button type="button" class="btn btn-success botao silkscreen-regular silkscreen-bold botoes-nav">GRÁFICOS</button>
+                <button type="button" class="btn btn-success botao archivo-black-regular botoes-nav">GRÁFICOS</button>
             </a>
         </div>
     </div>
@@ -45,7 +45,7 @@
         <div class="selec_arq">
             <p>
                 <input type="file" class="btn btn-success corbotão" id="uploadBtn" accept=".csv" onchange="checkFileType(this)">
-                <label class="btn btn-success corbotão silkscreen-regular silkscreen-bold" for="uploadBtn">Selecionar Arquivo</label>
+                <label class="btn btn-success corbotão archivo-black-regular" for="uploadBtn">SELECIONAR ARQUIVOS</label>
                 
                 <script>
                 function checkFileType(input) {
@@ -58,16 +58,17 @@
                 }
                 </script>
             </p>
-            <h1 class="subtitulo silkscreen-regular silkscreen-bold titulo-graficos">Gráficos</h1>
+        <!--gráficos-->
+            <h1 class="subtitulo archivo-black-regular titulo-graficos">GRÁFICOS</h1>
             <div class="chart-grid">
             <div id="temperature-chart" class="chart-container"></div>
             <div id="water-volume-chart" class="chart-container"></div>
             <div id="humidity-chart" class="chart-container"></div>
             <div id="soil-moisture-chart" class="chart-container"></div>
-        </div>
+            </div>
     <div class="rodapé">
     <div class="atualização">
-        <h1 class="silkscreen-regular silkscreen-bold">Atualizado em: dd/mm/aaaa <br>
+        <h1 class="concert-one-regular">Atualizado em: dd/mm/aaaa <br>
                         às hh:mm </h1>
         </div>
     </div> 
