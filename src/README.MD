@@ -99,20 +99,24 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 </details>
 
-## 5º Passo: Também é possível executar o container para rodar o projeto
+## 5º Passo: Utilizando o Docker para abrir a aplicação
 
 <details>
-  1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Dockercompose
+  <summary><b>Clique aqui</b></summary>
 
-  2. Digite o comando para iniciar o container
+  1. Acesse no terminal o diretório onde se encontra os arquivos Dockerfile e Dockercompose (diretório SRC)
+
+  2. Digite o comando para iniciar o container-docker
    ```
    docker-compose up
    ```
    Nesse ponto, um link aparecerá no terminal, você deve copiar e colar esse link no seu navegador
 
-  3. Após usar a aplicação basta fechar o container digitando o seguinte comando no terminal
+  3. Após usar a aplicação basta fechar o container-docker digitando o seguinte comando no terminal
    ```
    docker-compose down
    ```
+
 </details>
+
 → [Voltar ao topo](#topo)
