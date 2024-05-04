@@ -18,12 +18,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (index === 0) return;  
                 const columns = row.split(",");  
                 if (columns.length >= 7) {  
-                    const timeLabel = `${columns[2]}`;  
+                    const timeLabel = `${columns[1]} ${columns[2]}`;  
                     labels.push(timeLabel);  
 
                     if (!fixedDate) {  
                         fixedDate = columns[1];  
                     }
+
 
                     temperatureData.push(parseFloat(columns[5].replace(/"/g, '')));  
                     soilMoistureData.push(parseFloat(columns[3]));  
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         type: "category", 
                         ticks: {
                             color: "white",  
-                            maxTicksLimit: 10, 
+                            maxTicksLimit: 7, 
                         },
                     },
                     y: {
@@ -64,11 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
                             color: "white",  
                         },
                     },
-                    title: {
-                        display: true,
-                        text: `Data: ${fixedDate}`,  
-                        position: 'bottom',  
-                        color: "white",
                     },
                 },
             };
