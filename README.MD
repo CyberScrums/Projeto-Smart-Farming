@@ -1,7 +1,7 @@
 # FATEC Profº Jessen Vidal - São José dos Campos - 1º Semestre DSM - 2024
 
 <p>Projeto desenvolvido para a API (Aprendizagem por Projeto Integrado) do 1° Semestre do curso Desenvolvimento de software multiplataforma (DSM) em parceria com a equipe Inove do curso de Manufatura avançada no projeto Smart Farming<p>
-> A API se trata de um projeto  submetido à metodologia de ensino em implantação na Fatec São José dos Campos, do qual os alunos formam equipes baseadas na metodologia ágil SCRUM, tendo um aluno como Scrum Master, um sendo o Product Owner e o restante dos integrates como Dev Team.
+> A API se trata de um projeto submetido à metodologia de ensino em implantação na Fatec São José dos Campos, do qual os alunos formam equipes baseadas na metodologia ágil SCRUM, tendo um aluno como Scrum Master, um sendo o Product Owner e o restante dos integrates como Dev Team.
 
 
 
@@ -68,8 +68,8 @@
 | :----: | :-----------: | :-----------------------: | :------------------------------------------------------------: | :-----------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/160733714?v=4" width="75px"> | Scrum Master  | Eduardo da Silva Fontes | [Linkedin](https://www.linkedin.com/in/eduardo-da-silva-fontes/)  | [GitHub](https://github.com/DuuhZero)           |
 | <img src="https://avatars.githubusercontent.com/u/162118889?v=4" width="75px"> | Product Owner | Eduardo Kuwahara Jr. |  [Linkedin](https://www.linkedin.com/in/eduardo-kuwahara-3b2267303/)  | [GitHub](https://github.com/EduardoKuwahara) |
-| <img src="./imagensgit/Foto Daniel Porto.jpeg" width="75x">   | Dev Team | Daniel Porto Renó Sás Piloto |  [Linkedin](https://www.linkedin.com/in/daniel-piloto-98b717226/)  | [GitHub](https://github.com/danprsp)          |
+| <img src="https://avatars.githubusercontent.com/u/162122368?v=4">   | Dev Team | Daniel Porto Renó Sás Piloto |  [Linkedin](https://www.linkedin.com/in/daniel-piloto-98b717226/)  | [GitHub](https://github.com/danprsp)          |
 | <img src="https://avatars.githubusercontent.com/u/73435790?v=4" width="75px"> | Dev Team      | Fábio Kenjy Sato Lucas |  [Linkedin](https://www.linkedin.com/in/fabio-kenjy/)  |  [GitHub](https://github.com/FabioKenjjy)  |
-| <img src="./imagensgit/Foto João França.jpeg" width="75px">|Dev Team| João Pedro França Alves de Souza |  [Linkedin](https://www.linkedin.com/in/joão-pedro-frança-alves-de-souza-8700a62b3/)  | [GitHub](https://github.com/jofran2001)  |
+| <img src="https://avatars.githubusercontent.com/u/119539664?v=4" width="75px">|Dev Team| João Pedro França Alves de Souza |  [Linkedin](https://www.linkedin.com/in/joão-pedro-frança-alves-de-souza-8700a62b3/)  | [GitHub](https://github.com/jofran2001)  |
 | <img src="https://avatars.githubusercontent.com/u/162117916?v=4" width="75px"> | Dev Team      | João Vitor Rossi Ferreira |  [Linkedin](https://www.linkedin.com/in/joão-rossi-7311a0301/)  | [GitHub](https://github.com/rossilindo)    |
 | <img src="https://avatars.githubusercontent.com/u/162117908?v=4" width="75px"> | Dev Team      | Paulo Henrique Martins de Almeida |  [Linkedin](https://www.linkedin.com/in/paulo-almeida-3102452a7/)  | [GitHub](https://github.com/pauloalmeida46)    |
