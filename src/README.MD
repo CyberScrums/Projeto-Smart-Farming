@@ -64,9 +64,19 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
   DB_PASSWORD="senha" #ALTERAR PARA A SUA SENHA DO MYSQL
   DB_NAME="dadosestufa" #MANTER O NOME DO DATABASE
   ```
-</details>
-<br>
 
+  3. Caso algum problema ocorra durante a inicialização do flask, ou as seguintes dependências não sejam reconhecidas "Flask-MySQLdb" e/ou "python-dotenv", instale das seguintes formas:
+  
+  ```
+  python3 -m pip install Flask-MySQLdb==2.0.0
+  ```
+  
+  ```
+  python3 -m pip install python-dotenv==1.0.1
+  ```
+  
+  </details>
+  <br>
 
 ## 4º Passo: Abrindo a aplicação web
 
