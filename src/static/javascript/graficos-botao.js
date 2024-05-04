@@ -65,6 +65,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             color: "white",  
                         },
                     },
+                    title: {
+                        display: true,  
+                        color: "white",
                     },
                 },
             };
@@ -150,4 +153,151 @@ document.addEventListener("DOMContentLoaded", function() {
 
         reader.readAsText(file);  
     }); 
-});  
+});
+
+//banco de dados
+
+document.addEventListener("DOMContentLoaded", async function() {
+    // Busca dados do endpoint /api/dados
+    const response = await fetch('/api/dados');
+    const data = await response.json();
+
+    // Cria arrays para rótulos e dados de cada gráfico
+    const labels = [];
+    const temperatureData = [];
+    const soilMoistureData = [];
+    const humidityData = [];
+    const waterVolumeData = [];
+
+    // Preenche os arrays com dados do banco de dados
+    data.forEach((item) => {
+        const timeLabel = `${item.Data} ${item.Hora}`;  // Formato "Dia_Mes_Ano Hora"
+        labels.push(timeLabel);
+
+        temperatureData.push(item.Temperatura);
+        soilMoistureData.push(item.UmidadeSolo);
+        humidityData.push(item.UmidadeAmbiente);
+        waterVolumeData.push(item.VolumeAgua);
+    });
+
+    // Opções comuns para todos os gráficos
+    const commonOptions = {
+        scales: {
+            x: {
+                type: 'category',
+                ticks: {
+                    color: 'white',
+                    autoSkip: true,
+                    maxTicksLimit: 7,
+                },
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: 'white',
+                },
+            },
+        },
+        plugins: {
+            tooltip: {
+                mode: 'index',  // Tooltip exibe todos os valores relacionados ao eixo X
+                intersect: false,
+                callbacks: {
+                    label: function(context) {
+                        return `${context.dataset.label}: ${context.parsed.y}`;  // Exibe o rótulo e o valor
+                    },
+                },
+            },
+            legend: {
+                display: true,
+                labels: {
+                    color: 'white',
+                },
+            },
+            title: {
+                display: true,
+                color: 'white',
+            },
+        },
+    };
+
+    // Cria o gráfico de temperatura
+    const ctx1 = document.getElementById("temperature-chart").getContext("2d");
+    new Chart(ctx1, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Temperatura (°C)",
+                    data: temperatureData,
+                    borderColor: "rgba(255,255,51, 1)",
+                    backgroundColor: "rgba(255,255,51, 0.6)",
+                    fill: true,
+                    pointRadius: 0,
+                },
+            ],
+        },
+        options: commonOptions,
+    });
+
+    // Cria o gráfico de umidade do solo
+    const ctx2 = document.getElementById("soil-moisture-chart").getContext("2d");
+    new Chart(ctx2, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Umidade do Solo (%)",
+                    data: soilMoistureData,
+                    borderColor: "rgba(255,51,51, 1)",
+                    backgroundColor: "rgba(255,51,51, 0.6)",
+                    fill: true,
+                    pointRadius: 0,
+                },
+            ],
+        },
+        options: commonOptions,
+    });
+
+    // Cria o gráfico de umidade do ambiente
+    const ctx3 = document.getElementById("humidity-chart").getContext("2d");
+    new Chart(ctx3, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Umidade do Ambiente (%)",
+                    data: humidityData,
+                    borderColor: "rgba(122,172,33, 1)",
+                    backgroundColor: "rgba(122,172,33, 0.6)",
+                    fill: true,
+                    pointRadius: 0,
+                },
+            ],
+        },
+        options: commonOptions,
+    });
+
+    // Cria o gráfico de volume de água
+    const ctx4 = document.getElementById("water-volume-chart").getContext("2d");
+    new Chart(ctx4, {
+        type: "line",
+                    data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Volume de Água (Litros)",
+                    data: waterVolumeData,
+                    borderColor: "rgba(0,191,255, 1)",
+                    backgroundColor: "rgba(0,191,255, 0.6)",
+                    fill: true,
+                    pointRadius: 0,
+                },
+            ],
+        },
+        options: commonOptions,
+    });
+});
