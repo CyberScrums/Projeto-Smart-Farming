@@ -102,7 +102,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 ## 5º Passo: Também é possível executar o container para rodar o projeto
 
 <details>
-   1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Dockercompose
+    1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Dockercompose
 
    2. Digite o comando para iniciar o container
    ```
