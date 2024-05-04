@@ -8,6 +8,8 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 2. [Python](https://www.python.org/downloads/): Precisaremos do python para podermos utilizar de maneira adequada o nosso ambiente virtual, incluímos ele no arquivo requirements, porém sinta-se a vontade caso queira ter uma garantia baixando o python por si só.
 
+3. [Docker](https://docs.docker.com/get-docker/): Usaremos o Docker para rodar os containers que contém apenas as imagens que usaremos na aplicação, tornando o processo mais leve.
+
 
 ## 1º Passo: Clonando o repositório
 
@@ -97,4 +99,20 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 </details>
 
+## 5º Passo: Também é possível executar o container para rodar o projeto
+
+<details>
+   1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Dockercompose
+
+   2. Digite o comando para iniciar o container
+   ```
+   docker-compose up
+   ```
+   Nesse ponto, um link aparecerá no terminal, você deve copiar e colar esse link no seu navegador
+
+   3. Após usar a aplicação basta fechar o container digitando o seguinte comando no terminal
+   ```
+   docker-compose down
+   ```
+</details>
 → [Voltar ao topo](#topo)
