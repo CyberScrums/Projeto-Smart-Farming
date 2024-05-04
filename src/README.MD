@@ -50,8 +50,25 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 </details>
 <br>
 
+## 3º Passo: Configurando Banco de Dados
 
-## 3º Passo: Abrindo a aplicação web
+<details>
+  <summary><b>Cliqui aqui</b></summary>
+
+  1. Antes de inicializar a aplicação verifique se as credênciais de acesso, disponíveis dentro da pasta "src", estão de acordo com as definições da sua instância MySQL.
+
+  2. Acesse o arquivo ".env" e altere o campo "DB_PASSWORD="senha" para a senha definida, assim como no exemplo abaixo:
+  ```
+  DB-HOST="localhost" #HOST = IP, NO CASO LOCALHOST
+  DB_USER="root" #SEU USUÁRIO PADRÃO DO MYSQL 
+  DB_PASSWORD="senha" #ALTERAR PARA A SUA SENHA DO MYSQL
+  DB_NAME="dadosestufa" #MANTER O NOME DO DATABASE
+  ```
+</details>
+<br>
+
+
+## 4º Passo: Abrindo a aplicação web
 
 <details>
   <summary><b>Clique aqui</b></summary>
