@@ -12,7 +12,6 @@
 - [Visão do Projeto](#visao-do-projeto)
 - [Tecnologias utilizadas](#tecnologias)
 - [MVP](#mvp)
-- [Rode a aplicação](#rode-aplicacao)
 - [Product Backlog](#backlog)
 - [Equipe](#equipe)
 
