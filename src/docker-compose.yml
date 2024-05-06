@@ -1,6 +1,14 @@
 version: '3.8'
 
 services:
+  app:
+    build: .
+    links:
+      - 'database'
+    ports:
+      - '5001:5000'
+    depends_on:
+      - 'database'
   database:
     image: 'bitnami/mysql:latest'
     container_name: 'smart-farming-mysql'
@@ -16,7 +24,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3307:3306"
 
 networks:
   app-network:
