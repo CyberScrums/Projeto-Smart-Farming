@@ -62,7 +62,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
   2. Acesse o arquivo ".env" e altere o campo "DB_PASSWORD="senha" para a senha definida, assim como no exemplo abaixo:
   ```
   DB-HOST="localhost" #HOST = IP, NO CASO LOCALHOST
-  DB_USER="root" #SEU USUÁRIO PADRÃO DO MYSQL 
+  DB_USER="usuário" #NOME DO USUÁRIO PADRÃO DO MYSQL (Não pode ser root)
   DB_PASSWORD="senha" #ALTERAR PARA A SUA SENHA DO MYSQL
   DB_NAME="dadosestufa" #MANTER O NOME DO DATABASE
   ```
