@@ -98,6 +98,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
   ```
 
 </details>
+<br>
 
 ## 5º Passo: Utilizando o Docker para abrir a aplicação
 
@@ -118,5 +119,6 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
    ```
 
 </details>
+<br>
 
 → [Voltar ao topo](#topo)
