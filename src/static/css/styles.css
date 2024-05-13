@@ -62,6 +62,14 @@ body {
     align-items: left;
 }
 
+.selec_fil {
+    color: #ffffff;
+    font-size: larger;
+    font-family: monospace;
+    margin-top: 1%;
+    align-items: center;
+}
+
 .titulo-graficos {
     text-align: center;
 }
@@ -92,13 +100,6 @@ body {
     font-family: monospace;
     color: #1db954;
     border-radius: 5%;
-}
-
-.corbotão {
-    background-color: #1db954;
-    margin-left: 1%;
-    margin-top: 1px;
-    font-size: 20px;
 }
 
 .moldura .volume,
@@ -213,6 +214,76 @@ input[type="file"] {
 .rodapé {
     margin-bottom: 3%;
 }
+
+/* Estilos para o Datepicker */
+.ui-datepicker {
+    position: absolute;
+    top: calc(100% + 10px); /* Posicionar 10px abaixo do botão */
+    left: 50%; /* Centralizar horizontalmente */
+    transform: translateX(-50%);
+    z-index: 9999; /* Garantir que o Datepicker apareça acima de outros elementos */
+}
+
+.datepicker {
+    width: 300px;
+    top: calc(100% + 10px); /* Posicionar 10px abaixo do botão */
+    left: 50%; /* Centralizar horizontalmente */
+    transform: translateX(-50%);
+    margin-left: 50px; /* Deslocamento adicional para a direita */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Estilos adicionais */
+    background-color: #313131;
+    color: #1db954;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    z-index: 9999; /* Garantir que o Datepicker apareça acima de outros elementos */
+}
+
+/* Ocultar a seta de indicação de direção */
+.datepicker.dropdown-menu:before {
+    display: none !important;
+}
+
+.datepicker table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.datepicker table th,
+.datepicker table td {
+    text-align: center;
+    padding: 8px;
+}
+
+.datepicker table th {
+    font-weight: bold;
+}
+
+.datepicker table tbody tr td {
+    border: none;
+}
+
+.datepicker table tbody tr td.today {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.datepicker table tbody tr td.disabled,
+.datepicker table tbody tr td.disabled:hover {
+    background-color: transparent;
+    color: #ccc;
+}
+
+/* Adicionando estilos para centralizar o botão */
+.corbotão {
+    background-color: #1db954;
+    margin: 20px auto; /* Centralizar verticalmente e espaçar da borda superior */
+    font-size: 20px;
+    display: block; /* Certificar-se de que o botão ocupa toda a largura */
+    text-align: center; /* Centralizar horizontalmente */
+}
+
 
 @media only screen and (max-width: 1024px) {
     .titulo {
