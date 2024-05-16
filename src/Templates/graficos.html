@@ -39,25 +39,7 @@
     <!-- Linha separadora -->
     <div class="linha"></div>
 
-    <!-- Botão selecionar arquivo -->
-    <div class="selec_arq">
-        <p>
-            <input type="file" class="btn btn-success corbotão" id="uploadBtn" accept=".csv" onchange="checkFileType(this)">
-            <label class="btn btn-success corbotão archivo-black-regular" for="uploadBtn">Selecionar Arquivo</label>
-            
-            <script>
-                function checkFileType(input) {
-                    const file = input.files[0];
-                    
-                    if (file && !file.name.endsWith('.csv')) {
-                        alert('Por favor, selecione apenas arquivos CSV!');
-                        input.value = ''; 
-                    }
-                }
-            </script>
-        </p>
-        <h1 class="subtitulo archivo-black-regular titulo-graficos">Gráficos</h1>
-    </div>
+    <h1 class="subtitulo archivo-black-regular titulo-graficos">Gráficos</h1>
 
     <!-- Grade para os gráficos -->
     <div class="chart-grid">
@@ -75,11 +57,32 @@
         </div>
     </div>    
 
+    <div class="container">
+        <div class="selec_arq">
+            <p>
+                <input type="file" class="btn btn-success corbotão" id="uploadBtn" accept=".csv" onchange="checkFileType(this)">
+                <label class="btn btn-success corbotão archivo-black-regular" for="uploadBtn">Selecionar Arquivo</label>
+                
+                <script>
+                    function checkFileType(input) {
+                        const file = input.files[0];
+                        
+                        if (file && !file.name.endsWith('.csv')) {
+                            alert('Por favor, selecione apenas arquivos CSV!');
+                            input.value = ''; 
+                        }
+                    }
+                </script>
+            </p>
+        </div>
+    </div>
+
+    <div class="atualização">
+        <h1 class="bebas-neue-regular">Atualizado em: dd/mm/aaaa <br> às hh:mm </h1>
+    </div>
+
     <!-- Rodapé -->
     <div class="rodapé">
-        <div class="atualização">
-            <h1 class="bebas-neue-regular">Atualizado em: dd/mm/aaaa <br> às hh:mm </h1>
-        </div>
     </div> 
 
     <!-- Bootstrap JS -->
