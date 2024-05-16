@@ -39,7 +39,8 @@ body {
 
 .subtitulo {
     color: #1db954;
-    margin-top: 1%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     text-align: center;
 }
 
@@ -59,7 +60,7 @@ body {
     font-size: larger;
     font-family: monospace;
     margin-top: 1%;
-    align-items: left;
+    align-items: center;
 }
 
 .selec_fil {
@@ -67,7 +68,7 @@ body {
     font-size: larger;
     font-family: monospace;
     margin-top: 1%;
-    align-items: center;
+    align-items: left;
 }
 
 .titulo-graficos {
@@ -141,7 +142,7 @@ input[type="file"] {
 }
 
 .atualização {
-    margin-top: 3%;
+    margin-top: -1%;
     color: #1db954;
     text-align: center;
     font-size: 20px;
@@ -280,9 +281,42 @@ input[type="file"] {
     background-color: #1db954;
     margin: 20px auto; /* Centralizar verticalmente e espaçar da borda superior */
     font-size: 20px;
-    display: block; /* Certificar-se de que o botão ocupa toda a largura */
-    text-align: center; /* Centralizar horizontalmente */
+    align-content: center;
 }
+
+.container {
+    display: flex;
+    justify-content: center; /* Centralizar os elementos horizontalmente */
+    align-items: center; /* Centralizar os elementos verticalmente */
+}
+
+.container2 {
+    display: flex;
+    justify-content: center; /* Centralizar os elementos horizontalmente */
+    align-items: center; /* Centralizar os elementos verticalmente */
+}
+
+.grid-2x2 {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que os itens se movam para a linha seguinte se não houver espaço suficiente */
+    justify-content: center; /* Alinhar os itens ao centro horizontalmente */
+    gap: 20px; /* Espaçamento entre os itens */
+    margin-top: 5%; /* Margem superior */
+}
+
+.grid-item {
+    background-color: #313131;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: monospace;
+    text-align: center;
+    width: 350px; /* Largura do quadrado */
+    height: 350px; /* Altura do quadrado */
+}
+
+
+
 
 
 @media only screen and (max-width: 1024px) {
@@ -355,6 +389,7 @@ input[type="file"] {
         margin-left: 5%;
         margin-right: 5%;
         font-size: 80%;
+        margin-top: -5%;
     }
 
     .texto {
