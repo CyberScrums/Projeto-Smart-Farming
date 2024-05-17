@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         waterVolumeData.push(item.VolumeAgua);
     });
 
-    // Opções comuns para todos os gráficos
+    // Opções todos os gráficos
     const commonOptions = {
         scales: {
             x: {
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         },
     };
 
-    // Cria o gráfico de temperatura
+    // gráfico de temperatura
     const ctx1 = document.getElementById("temperature-chart").getContext("2d");
     new Chart(ctx1, {
         type: "line",
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         options: commonOptions,
     });
 
-    // Cria o gráfico de umidade do solo
+    // gráfico de umidade do solo
     const ctx2 = document.getElementById("soil-moisture-chart").getContext("2d");
     new Chart(ctx2, {
         type: "line",
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         options: commonOptions,
     });
 
-    // Cria o gráfico de umidade do ambiente
+    // gráfico de umidade do ambiente
     const ctx3 = document.getElementById("humidity-chart").getContext("2d");
     new Chart(ctx3, {
         type: "line",
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         options: commonOptions,
     });
 
-    // Cria o gráfico de volume de água
+    // gráfico de volume de água
     const ctx4 = document.getElementById("water-volume-chart").getContext("2d");
     new Chart(ctx4, {
         type: "line",
@@ -301,3 +301,21 @@ document.addEventListener("DOMContentLoaded", async function() {
         options: commonOptions,
     });
 });
+
+document.addEventListener('DOMContentLoaded', async function() {
+    const response = await fetch('/api/medias');
+    const data = await response.json();
+
+    // Arredonda os valores das médias para no máximo 1 casa decimal
+    const temperaturaMedia = parseFloat(data.TemperaturaMedia).toFixed(1);
+    const umidadeSoloMedia = parseFloat(data.UmidadeSoloMedia).toFixed(1);
+    const umidadeAmbienteMedia = parseFloat(data.UmidadeAmbienteMedia).toFixed(1);
+    const volumeAguaMedia = parseFloat(data.VolumeAguaMedia).toFixed(1);
+
+    // Exibe os valores arredondados no HTML
+    document.getElementById('temperatura-media').textContent = `${temperaturaMedia} °C`;
+    document.getElementById('umidade-solo-media').textContent = `${umidadeSoloMedia} %`;
+    document.getElementById('umidade-ambiente-media').textContent = `${umidadeAmbienteMedia} %`;
+    document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
+});
+
