@@ -14,7 +14,6 @@ app.config['MYSQL_DB'] = os.getenv("DB_NAME")
 
 mysql = MySQL (app)
 
-
 @app.route("/")
 def home():
     return render_template('index.html')
@@ -25,7 +24,15 @@ def index():
 
 @app.route("/graficos.html")
 def graficos():
-     return render_template("graficos.html")
+    cursor = mysql.connection.cursor()
+    query = "SELECT Dia_Mes_Ano, Hora FROM dados ORDER BY dado_cod DESC LIMIT 1;"
+    cursor.execute(query)
+    resultado = cursor.fetchone()
+    print("Resultado da consulta:", resultado)
+    ultima_data = resultado[0]
+    ultima_hora = resultado[1]
+    cursor.close()
+    return render_template("graficos.html",ultima_data=ultima_data, ultima_hora=ultima_hora )
     
 @app.route("/api/dados", methods=["GET"])
 def get_dados():
