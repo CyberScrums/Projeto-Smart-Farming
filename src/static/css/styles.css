@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -305,6 +304,7 @@ input[type="file"] {
 }
 
 .grid-item {
+    align-items: center;
     background-color: #313131;
     padding: 20px;
     border-radius: 10px;
@@ -313,6 +313,14 @@ input[type="file"] {
     text-align: center;
     width: 350px; /* Largura do quadrado */
     height: 350px; /* Altura do quadrado */
+}
+
+.grid-item p{
+    margin-top: 20%;
+    text-align: center;
+    font-size: 90px;
+    color: #00ff59;
+    font-family: "Bebas Neue";
 }
 
 

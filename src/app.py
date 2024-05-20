@@ -57,6 +57,23 @@ def get_dados():
     else:
         return jsonify({'error': 'Erro ao tentar estabelecer conexão com o Banco de Dados'}), 500
 
+@app.route("/api/medias", methods=["GET"])
+def get_medias():
+    if mysql.connection:
+        try:
+            cursor = mysql.connection.cursor()
+            cursor.execute("SELECT AVG(Temperatura), AVG(UmidadeSolo), AVG(UmidadeAmbiente), AVG(VolumeAgua) FROM dados")
+            medias = cursor.fetchone()
+            return jsonify({
+                'TemperaturaMedia': medias[0],
+                'UmidadeSoloMedia': medias[1],
+                'UmidadeAmbienteMedia': medias[2],
+                'VolumeAguaMedia': medias[3],
+            })
+        finally:
+            cursor.close()
+    else:
+        return jsonify({'error': 'Erro ao tentar estabelecer conexão com o Banco de Dados'}), 500
 
 if __name__ == "__main__":
     app.run(debug=True) 
