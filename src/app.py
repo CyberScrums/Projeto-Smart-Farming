@@ -1,16 +1,13 @@
 import os
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request, redirect
 from flask_mysqldb import MySQL
-from dotenv import load_dotenv
-load_dotenv()
-
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = os.getenv("DB_HOST")
-app.config['MYSQL_USER'] = os.getenv("DB_USER")
-app.config['MYSQL_PASSWORD'] = os.getenv("DB_PASSWORD")
-app.config['MYSQL_DB'] = os.getenv("DB_NAME")
+app.config['MYSQL_HOST'] = "localhost"
+app.config['MYSQL_USER'] = "Usuário" #ALTERAR O NOME DE USUÁRIO DO MYSQL (Não pode ser root) 
+app.config['MYSQL_PASSWORD'] = "Senha" #ALTERAR PARA A SUA SENHA DO MYSQL
+app.config['MYSQL_DB'] = "dadosestufa"
 
 mysql = MySQL (app)
 
