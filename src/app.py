@@ -5,8 +5,8 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "Usuário" #ALTERAR O NOME DE USUÁRIO DO MYSQL (Não pode ser root) 
-app.config['MYSQL_PASSWORD'] = "Senha" #ALTERAR PARA A SUA SENHA DO MYSQL
+app.config['MYSQL_USER'] = "root" #ALTERAR O NOME DE USUÁRIO DO MYSQL
+app.config['MYSQL_PASSWORD'] = "anuubiss1" #ALTERAR PARA A SUA SENHA DO MYSQL
 app.config['MYSQL_DB'] = "dadosestufa"
 
 mysql = MySQL (app)
@@ -59,7 +59,9 @@ def get_medias():
     if mysql.connection:
         try:
             cursor = mysql.connection.cursor()
-            cursor.execute("SELECT AVG(Temperatura), AVG(UmidadeSolo), AVG(UmidadeAmbiente), AVG(VolumeAgua) FROM dados")
+            cursor.execute("SELECT MAX(Dia_Mes_Ano) FROM dados")
+            ultima_data = cursor.fetchone()[0]
+            cursor.execute("SELECT AVG(Temperatura), AVG(UmidadeSolo), AVG(UmidadeAmbiente), AVG(VolumeAgua) FROM dados WHERE Dia_Mes_Ano = %s", (ultima_data,))
             medias = cursor.fetchone()
             return jsonify({
                 'TemperaturaMedia': medias[0],
