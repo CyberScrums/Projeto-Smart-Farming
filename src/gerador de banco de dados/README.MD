@@ -1,5 +1,5 @@
 # Como usar:
-> _Os códigos e processos presentes neste readme possuem versão para WINDOWS_
+> _Dentro da pasta "gerador de banco de dados" há 3 pastas:_
 
 ## Dados
   Pasta que contem os dados em .csv que serão trazidos da estufa, os dados ali presentes ainda não são os dados atualizados.
