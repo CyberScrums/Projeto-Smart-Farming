@@ -1,5 +1,4 @@
 import csv
-import re
 from pathlib import Path
 
 # Obter o diretório atual
@@ -34,9 +33,10 @@ with open(arquivo_csv, 'r') as csvfile:  #transforma tudo em uma só biblioteca
     reader = csv.DictReader(csvfile) 
     for linha in reader: 
         dados.append(linha)
-valores = str(dados_existentes[1:]).replace('{',"(").replace("}",")").replace("[","(").replace("]",")").replace("TerÃ§a","Terça").replace("SÃ¡bado","Sábado")
+valores = str(dados_existentes[1:]).replace('{',"(").replace("}",")").replace("[","(").replace("]",")").replace("TerÃ§a","Terça").replace("SÃ¡bado","Sábado").replace("TerÃƒÂ§a","Terça").replace("(),","").replace("())","")
 #removedor de , para . do float
 
+#remove , e transforma em .
 x = 0
 y = 0
 while x < 10:
@@ -45,7 +45,21 @@ while x < 10:
     if y == 10:
      y = 0
      x = x+1
-print(len(dados))
+#print(len(dados))
+
+
+#mecanismo de busca/ localiza uma data e remove tudo para traz
+datadebusca = "4/12/2023"
+valoresnovos = valores[::-1] #iverte a string
+valoresnovos = valoresnovos[:valoresnovos.find(datadebusca[::-1])] #remove data
+valoresnovos = valoresnovos[::-1] #retorna ao normal
+for k in range(len(valoresnovos)): #corrige o modelo
+    if k == valoresnovos.find("("):
+        valoresnovos=valoresnovos[k:]
+        break
+#print (valoresnovos)
+
+
 
 
 #geração de sql
@@ -69,7 +83,7 @@ UmidadeAmbiente varchar(50),
 Temperatura varchar(50),
 VolumeAgua varchar(50));
 
-insert into dados (DiaSemana, Dia_Mes_Ano, Hora, UmidadeSolo, UmidadeAmbiente, Temperatura, VolumeAgua) values ({valores[2:-2]});
+insert into dados (DiaSemana, Dia_Mes_Ano, Hora, UmidadeSolo, UmidadeAmbiente, Temperatura, VolumeAgua) values ({valoresnovos[0:-1]});
 ALTER TABLE dados MODIFY UmidadeSolo Float;
 ALTER TABLE dados MODIFY UmidadeAmbiente Float;
 ALTER TABLE dados MODIFY Temperatura Float;
