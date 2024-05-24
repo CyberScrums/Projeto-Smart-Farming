@@ -304,16 +304,53 @@ document.addEventListener('DOMContentLoaded', async function() {
     const response = await fetch('/api/medias');
     const data = await response.json();
 
-    // Arredonda os valores das médias para no máximo 1 casa decimal
     const temperaturaMedia = parseFloat(data.TemperaturaMedia).toFixed(1);
     const umidadeSoloMedia = parseFloat(data.UmidadeSoloMedia).toFixed(1);
     const umidadeAmbienteMedia = parseFloat(data.UmidadeAmbienteMedia).toFixed(1);
     const volumeAguaMedia = parseFloat(data.VolumeAguaMedia).toFixed(1);
 
-    // Exibe os valores arredondados no HTML
     document.getElementById('temperatura-media').textContent = `${temperaturaMedia} °C`;
     document.getElementById('umidade-solo-media').textContent = `${umidadeSoloMedia} %`;
     document.getElementById('umidade-ambiente-media').textContent = `${umidadeAmbienteMedia} %`;
     document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+   
+    $('#filtro-calendario').datepicker({
+        format: "dd/mm/yyyy", 
+        language: "pt-BR",
+        autoclose: true,
+        todayHighlight: true
+    }).on('changeDate', function(e) {
+        const selectedDate = e.format('dd/mm/yyyy');
+        fetchMediasByDate(selectedDate);
+    });
+    async function fetchMediasByDate(date) {
+        try {
+            const response = await fetch(`/api/mediasdata?data=${date}`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar dados');
+            }
+            const data = await response.json();
+
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+            const temperaturaMedia = parseFloat(data.TemperaturaMedia).toFixed(1);
+            const umidadeSoloMedia = parseFloat(data.UmidadeSoloMedia).toFixed(1);
+            const umidadeAmbienteMedia = parseFloat(data.UmidadeAmbienteMedia).toFixed(1);
+            const volumeAguaMedia = parseFloat(data.VolumeAguaMedia).toFixed(1);
+            document.getElementById('temperatura-media').textContent = `${temperaturaMedia} °C`;
+            document.getElementById('umidade-solo-media').textContent = `${umidadeSoloMedia} %`;
+            document.getElementById('umidade-ambiente-media').textContent = `${umidadeAmbienteMedia} %`;
+            document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao buscar dados para a data selecionada.');
+        }
+    }
+});
+
 
