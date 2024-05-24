@@ -23,6 +23,30 @@ body {
     color: #00ff59;
 }
 
+.media{
+    display: flex;
+    color: #00ff59;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Bebas Neue';
+}
+.media h2{
+    font-size: 50px;
+    margin-bottom: 2%;
+}
+
+.grafico{
+    display: flex;
+    color: #00ff59;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Bebas Neue';
+}
+
+.grafico h2{
+    font-size: 50px;
+    margin-top: 5% ;
+}
 .bebas-neue-regular {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 100;
@@ -51,10 +75,6 @@ body {
     margin-top: 2%;
 }
 
-.titulo-graficos {
-    text-align: center;
-}
-
 .atconfig {
     background-color: #313131;
 }
@@ -71,7 +91,7 @@ body {
 }
 
 .linha {
-    border-bottom: 3px solid #1db954;
+    border-bottom: 3px solid #00ff59;
 }
 
 .moldura {
@@ -79,7 +99,7 @@ body {
     padding: 20px;
     text-align: center;
     font-family: monospace;
-    color: #1db954;
+    color: #00ff59;
     border-radius: 5%;
 }
 
@@ -134,7 +154,7 @@ input[type="file"] {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     justify-content: center;
-    margin-top: 5%;
+    margin-top:2%;
 }
 
 
@@ -224,7 +244,7 @@ input[type="file"] {
 .datepicker table tbody tr td.disabled,
 .datepicker table tbody tr td.disabled:hover {
     background-color: transparent;
-    color: #ff0000;
+    color: #00ff59;
 }
 
 
@@ -234,8 +254,9 @@ input[type="file"] {
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    
+    border-color: #00ff59;
 }
+
 
 .container {
     display: flex;
@@ -254,7 +275,7 @@ input[type="file"] {
 .grid-item {
     align-items: center;
     background-color: transparent;
-    border: 2px solid #1db954;
+    border: 2px solid #00ff59;
     padding: 20px;
     border-radius: 50%;
     color: #ffffff;
