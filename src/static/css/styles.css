@@ -20,7 +20,7 @@ body {
 
 .titulo {
     font-size: 40px;
-    color: #1db954;
+    color: #00ff59;
 }
 
 .bebas-neue-regular {
@@ -116,6 +116,7 @@ input[type="file"] {
     margin-top: 11%;
     height: 4px; 
     background-color: #00ff59; 
+    width: 100%;
   }
 
 .linha3{
@@ -123,10 +124,12 @@ input[type="file"] {
     margin-top: 1%;
     height: 4px; 
     background-color: #00ff59; 
+    width: 100%;
 }
 
 
 .chart-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
@@ -178,7 +181,7 @@ input[type="file"] {
     top: calc(100% + 10px); 
     left: 50%; 
     transform: translateX(-50%);
-    margin-left: 50px; 
+    margin-left: 11%; 
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #313131;
@@ -205,10 +208,12 @@ input[type="file"] {
 
 .datepicker table th {
     font-weight: bold;
+    /*cabeçalho do calendario*/
 }
 
 .datepicker table tbody tr td {
     border: none;
+    /*dias calendario*/
 }
 
 .datepicker table tbody tr td.today {
@@ -219,7 +224,7 @@ input[type="file"] {
 .datepicker table tbody tr td.disabled,
 .datepicker table tbody tr td.disabled:hover {
     background-color: transparent;
-    color: #ccc;
+    color: #ff0000;
 }
 
 
@@ -277,11 +282,15 @@ input[type="file"] {
 
 
 
-@media only screen and (max-width: 1024px) {
+@media (max-width: 1100px) {
     .titulo {
         margin-right: 60%;
         font-size: 1.8rem;
         text-align: left;
+    }
+
+    .chart-container{
+        height: 250px;
     }
 }
 
@@ -289,7 +298,6 @@ input[type="file"] {
     .titulo {
         margin-right: 42%;
         font-size: 35px;
-        
         text-align: left;
     }
 
@@ -298,9 +306,9 @@ input[type="file"] {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .chart-container {
-        height: 200px;
+        height: 250px;
     }
 
     .titulo {
@@ -309,18 +317,23 @@ input[type="file"] {
         text-align: left;
     }
 
+}
+
+@media (max-width: 710px){
     .chart-grid {
         grid-template-columns: 1fr;
     }
+}
+
+@media (max-width:431px){
 
     .chart-container {
-        height: 300px;
-        width: 85%;
-        margin-left: 8%;
+        height: 250px;
+        margin-left: 0%;
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 398px) {
 
     .titulo {
         margin-right: 15%;
@@ -334,20 +347,11 @@ input[type="file"] {
         margin-left: 10px;
     }
 
-    .botoes-nav {
-        font-size: 10px;
-        justify-content: flex-start;
-    }
-
-    .botaozinhome {
-        margin-top: 8%;
-    }
 
     .atualização {
         margin-left: 5%;
         margin-right: 5%;
         font-size: 80%;
-        margin-top: -5%;
     }
 
     .texto {
@@ -355,15 +359,6 @@ input[type="file"] {
         margin-right: 5%;
         font-size: 100%;
     }
-
-    .carrosel {
-        width: 80%;
-        height: 70%;
-        margin-top: 3%;
-        margin-bottom: 3%;
-    }
-
-
     .titulo-graficos{
         font-size: 20px;
     }
@@ -377,7 +372,12 @@ input[type="file"] {
     }
 
     .chart-container {
-        height: 300px;
+        height: 200px;
+        margin-left: 0%;
+    }
+
+    .datepicker{
+        margin-left: 85%;
     }
 
 }
