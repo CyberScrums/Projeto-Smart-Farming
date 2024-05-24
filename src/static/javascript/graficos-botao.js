@@ -158,11 +158,9 @@ document.addEventListener("DOMContentLoaded", function() {
 //banco de dados
 
 document.addEventListener("DOMContentLoaded", async function() {
-    // Busca dados do endpoint /api/dados
     const response = await fetch('/api/dados');
     const data = await response.json();
 
-    // Cria arrays para rótulos e dados de cada gráfico
     const labels = [];
     const temperatureData = [];
     const soilMoistureData = [];
@@ -171,7 +169,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     // Preenche os arrays com dados do banco de dados
     data.forEach((item) => {
-        const timeLabel = `${item.Data} ${item.Hora}`;  // Formato "Dia_Mes_Ano Hora"
+        const timeLabel = `${item.Data} ${item.Hora}`;
         labels.push(timeLabel);
 
         temperatureData.push(item.Temperatura);
@@ -188,7 +186,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 ticks: {
                     color: 'white',
                     autoSkip: true,
-                    maxTicksLimit: 7,
+                    maxTicksLimit: 6.5,
                 },
             },
             y: {
@@ -211,7 +209,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             legend: {
                 display: true,
                 labels: {
-                    color: 'white',
+                    color: '#00ff59',
                 },
             },
             title: {
