@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #202020;
+    background-color: rgb(32, 32, 32);
     font-family: Arial, sans-serif;
 }
 
@@ -13,34 +13,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(0, 0, 0);
-    padding: 10px;
-    border: none;
-    justify-content: flex-end;
+    background-color: rgb(25, 25, 25);
+    justify-content: flex-start;
 }
 
-.botoes-nav {
-    float: left;
-    margin-right: 10px;
-}
 
 .titulo {
-    font-size: 50px;
-    max-width: 90%;
+    font-size: 40px;
     color: #1db954;
-    margin-right: 55%;
 }
 
 .bebas-neue-regular {
     font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-}
-
-.subtitulo {
-    color: #1db954;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    text-align: center;
+    font-weight: 100;
 }
 
 .archivo-black-regular {
@@ -50,24 +35,20 @@ body {
 }
 
 .imagem {
-    margin-right: 3%;
-    height: 100px;
+    margin-right: 0.5%;
+    margin-left: 1%;
 }
 
 .selec_arq {
-    color: #ffffff;
-    font-size: larger;
-    font-family: monospace;
-    margin-top: 1%;
-    align-items: center;
+    margin-top: 2%;
+}
+
+.selec_arq img{
+    margin-top: 10%
 }
 
 .selec_fil {
-    color: #ffffff;
-    font-size: larger;
-    font-family: monospace;
-    margin-top: 1%;
-    align-items: left;
+    margin-top: 2%;
 }
 
 .titulo-graficos {
@@ -90,7 +71,7 @@ body {
 }
 
 .linha {
-    border-bottom: 2px solid #1db954;
+    border-bottom: 3px solid #1db954;
 }
 
 .moldura {
@@ -116,33 +97,11 @@ input[type="file"] {
     display: none;
 }
 
-.flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 10px;
-}
 
-.botao {
-    background-color: #1db954;
-    margin-right: 10px;
-}
-
-.botaohome button {
-    font-size: 25px;
-}
-
-.carrosel {
-    border: solid;
-    border-color: #1db954;
-    max-width: 100%;
-    height: auto;
-    margin: -3% auto 1% auto;
-}
 
 .atualização {
-    margin-top: -1%;
-    color: #1db954;
+    margin-top: 1%;
+    color: #00ff59;
     text-align: center;
     font-size: 20px;
 }
@@ -152,58 +111,40 @@ input[type="file"] {
     font-weight: 400;
 }
 
-.flex2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5%;
-}
+.linha2{
+    display: block;
+    margin-top: 11%;
+    height: 4px; 
+    background-color: #00ff59; 
+  }
 
-.texto {
+.linha3{
+    display: block;
     margin-top: 1%;
-    margin-left: 20%;
-    margin-right: 20%;
-    text-align: center;
-    color: aliceblue;
-    font-size: 250%;
-    justify-content: space-between;
+    height: 4px; 
+    background-color: #00ff59; 
 }
 
-.botaozinhome {
-    margin-top: 3%;
-    align-items: center;
-}
 
 .chart-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-top: 5%;
 }
 
 
 .chart-container {
     width: 100%;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    background-color: transparent;
+    border: 2px solid #00ff59;
+    border-radius: 20px;
     overflow: hidden;
 }
 
-.chart-label {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-weight: bold;
-    color: #1db954;
-}
 
-.chart-container-small {
-    width: 300px;
-    height: 300px;
-}
 
 .body {
     display: flex;
@@ -212,35 +153,41 @@ input[type="file"] {
 }
 
 .rodapé {
-    margin-bottom: 3%;
+    color: white;
+    margin-top: 2%;
+    align-items: center;
+    text-align: center;
 }
 
-/* Estilos para o Datepicker */
+.rodapé a{
+    text-decoration: none;
+    color: #00ff59;
+}
+
+
+
 .ui-datepicker {
     position: absolute;
-    top: calc(100% + 10px); /* Posicionar 10px abaixo do botão */
-    left: 50%; /* Centralizar horizontalmente */
+    top: calc(100% + 10px);
+    left: 50%;
     transform: translateX(-50%);
-    z-index: 9999; /* Garantir que o Datepicker apareça acima de outros elementos */
+    z-index: 9999; 
 }
-
 .datepicker {
     width: 300px;
-    top: calc(100% + 10px); /* Posicionar 10px abaixo do botão */
-    left: 50%; /* Centralizar horizontalmente */
+    top: calc(100% + 10px); 
+    left: 50%; 
     transform: translateX(-50%);
-    margin-left: 50px; /* Deslocamento adicional para a direita */
+    margin-left: 50px; 
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Estilos adicionais */
     background-color: #313131;
     color: #1db954;
     font-family: Arial, sans-serif;
     padding: 10px;
-    z-index: 9999; /* Garantir que o Datepicker apareça acima de outros elementos */
+    z-index: 9999;
 }
 
-/* Ocultar a seta de indicação de direção */
 .datepicker.dropdown-menu:before {
     display: none !important;
 }
@@ -275,52 +222,55 @@ input[type="file"] {
     color: #ccc;
 }
 
-/* Adicionando estilos para centralizar o botão */
+
 .corbotão {
-    background-color: #1db954;
-    margin: 20px auto; /* Centralizar verticalmente e espaçar da borda superior */
-    font-size: 20px;
-    align-content: center;
+    background-color: transparent;
+    margin: 5px auto; 
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    
 }
 
 .container {
     display: flex;
-    justify-content: center; /* Centralizar os elementos horizontalmente */
-    align-items: center; /* Centralizar os elementos verticalmente */
+    gap: 20px;
+    margin-right: 10%;
 }
 
-.container2 {
-    display: flex;
-    justify-content: center; /* Centralizar os elementos horizontalmente */
-    align-items: center; /* Centralizar os elementos verticalmente */
-}
 
 .grid-2x2 {
     display: flex;
-    flex-wrap: wrap; /* Permitir que os itens se movam para a linha seguinte se não houver espaço suficiente */
-    justify-content: center; /* Alinhar os itens ao centro horizontalmente */
-    gap: 20px; /* Espaçamento entre os itens */
-    margin-top: 5%; /* Margem superior */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
 }
 
 .grid-item {
     align-items: center;
-    background-color: #313131;
+    background-color: transparent;
+    border: 2px solid #1db954;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 50%;
     color: #ffffff;
     font-family: monospace;
     text-align: center;
-    width: 350px; /* Largura do quadrado */
-    height: 350px; /* Altura do quadrado */
+    width: 330px; 
+    height: 330px; 
 }
 
 .grid-item p{
-    margin-top: 20%;
+    margin-top: 5%;
     text-align: center;
     font-size: 90px;
     color: #00ff59;
     font-family: "Bebas Neue";
+}
+
+.grid-item h2{
+    color: #00ff59;
+    margin-top: 15%;
+    font-size: 25px;
 }
 
 
