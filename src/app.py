@@ -5,8 +5,8 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "root" #ALTERAR O NOME DE USUÁRIO DO MYSQL
-app.config['MYSQL_PASSWORD'] = "anuubiss1" #ALTERAR PARA A SUA SENHA DO MYSQL
+app.config['MYSQL_USER'] = "usuario" #ALTERAR O NOME DE USUÁRIO DO MYSQL
+app.config['MYSQL_PASSWORD'] = "senha" #ALTERAR PARA A SUA SENHA DO MYSQL
 app.config['MYSQL_DB'] = "dadosestufa"
 
 mysql = MySQL (app)
