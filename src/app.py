@@ -6,7 +6,7 @@ app = Flask(__name__)
 db_config = {
     'user': 'usuario', #ALTERAR PARA SEU USUÁRIO NO MYSQL
     'password': 'senha', #ALTERAR PARA A SUA SENHA NO MYSQL
-    'host': 'db', #ALTERAR PARA O SEU NOME DE USUÁRIO NO MYSQL
+    'host': 'db', 
 }
 
 conn = mysql.connector.connect(**db_config)
