@@ -5,8 +5,8 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "usuario" #ALTERAR O NOME DE USUÁRIO DO MYSQL
-app.config['MYSQL_PASSWORD'] = "senha" #ALTERAR PARA A SUA SENHA DO MYSQL
+app.config['MYSQL_USER'] = "root" #ALTERAR O NOME DE USUÁRIO DO MYSQL
+app.config['MYSQL_PASSWORD'] = "anuubiss1" #ALTERAR PARA A SUA SENHA DO MYSQL
 app.config['MYSQL_DB'] = "dadosestufa"
 
 mysql = MySQL (app)
@@ -67,6 +67,24 @@ def get_medias():
     else:
         return jsonify({'error': 'Erro ao tentar estabelecer conexão com o Banco de Dados'}), 500
 
+
+@app.route("/api/mediasdata", methods=["GET"])
+def get_mediasdata():
+    data = request.args.get('data')
+    if not data:
+        return jsonify({'error': 'Data não fornecida'}), 400
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT AVG(Temperatura), AVG(UmidadeSolo), AVG(UmidadeAmbiente), AVG(VolumeAgua) FROM dados WHERE Dia_Mes_Ano = %s", (data,))
+    medias = cursor.fetchone()
+    cursor.close()
+    if not medias or all(m is None for m in medias):
+        return jsonify({'error': 'Dados não encontrados para a data fornecida'}), 404
+    return jsonify({
+        'TemperaturaMedia': medias[0],
+        'UmidadeSoloMedia': medias[1],
+        'UmidadeAmbienteMedia': medias[2],
+        'VolumeAguaMedia': medias[3],
+    })
 if __name__ == "__main__":
     app.run(debug=True) 
 
