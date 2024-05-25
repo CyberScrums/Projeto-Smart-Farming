@@ -49,7 +49,7 @@ while x < 10:
 #filtra data
 for k in range(10):
     for j in range(13):
-        valores = valores.replace(f"'{k}/{j}/2023",f"'0{k}/{j}/2023")
+        valores = valores.replace(f"'{k}/{j}/20",f"'0{k}/{j}/20")
 #geração de sql
 import os
 import sys
