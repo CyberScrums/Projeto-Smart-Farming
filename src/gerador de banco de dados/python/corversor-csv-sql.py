@@ -48,20 +48,6 @@ while x < 10:
 #print(len(dados))
 
 
-#mecanismo de busca/ localiza uma data e remove tudo para traz
-datadebusca = "4/12/2023"
-valoresnovos = valores[::-1] #iverte a string
-valoresnovos = valoresnovos[:valoresnovos.find(datadebusca[::-1])] #remove data
-valoresnovos = valoresnovos[::-1] #retorna ao normal
-for k in range(len(valoresnovos)): #corrige o modelo
-    if k == valoresnovos.find("("):
-        valoresnovos=valoresnovos[k:]
-        break
-#print (valoresnovos)
-
-
-
-
 #geração de sql
 import os
 import sys
