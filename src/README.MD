@@ -101,6 +101,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 <details>
   <summary><b>Clique aqui</b></summary>
+  
   > _Com o Docker é possível fazer sua aplicação rodar em qualquer máquina, sendo usado apenas o Dockerfile e o Docker-compose.yml, por isso está a opção mais recomendada para seu projeto._
 
   1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Dockercompose (diretório SRC)
