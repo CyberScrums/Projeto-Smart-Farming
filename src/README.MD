@@ -8,7 +8,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 2. [Python](https://www.python.org/downloads/): Precisaremos do python para podermos utilizar de maneira adequada o nosso ambiente virtual, incluímos ele no arquivo requirements, porém sinta-se a vontade caso queira ter uma garantia baixando o python por si só.
 
-3. [Docker](https://docs.docker.com/get-docker/): Usaremos o Docker para rodar os containers que contém apenas as imagens que usaremos na aplicação, tornando o processo mais leve.
+3. [Docker](https://docs.docker.com/get-docker/): Usaremos o Docker para rodar os containers que contém apenas as imagens que usaremos na aplicação, tornando o processo mais leve. Se seu SO for Windows baixe o Docker Desktop para que possa executar o programa, caso seja Linux ou macOS, você pode optar por baixa-lo no terminal ou baixar o Docker Desktop para estes respectivos Sistemas Operacionais.
 
 
 ## 1º Passo: Clonando o repositório
@@ -57,24 +57,21 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 <details>
   <summary><b>Cliqui aqui</b></summary>
 
-  1. Antes de inicializar a aplicação verifique se as credênciais de acesso, disponíveis dentro da pasta "src", estão de acordo com as definições da sua instância MySQL.
 
-  2. Acesse o arquivo ".env" e altere o campo "DB_PASSWORD="senha" para a senha definida, assim como no exemplo abaixo:
+  1. Primeiramente, no seu MySQL Workbench selecione a opção de abrir o Script bdAPI.sql (localizado na pasta SQL dentro de "Gerador de Banco de Dados") e Execute para criar o Banco de Dados, selecionando uma figura de Trovão que é responsavel por rodar todo o script.
+  2. Antes de inicializar a aplicação verifique se as credênciais de acesso, disponíveis dentro da pasta "src" no arquivo app.py, estão de acordo com as definições da sua instância MySQL.
+
   ```
-  DB-HOST="localhost" #HOST = IP, NO CASO LOCALHOST
-  DB_USER="usuário" #NOME DO USUÁRIO PADRÃO DO MYSQL (Não pode ser root)
+  DB_HOST="db" #MANTER O NOME DO HOST 
+  DB_USER="usuário" #NOME DO USUÁRIO PADRÃO DO MYSQL 
   DB_PASSWORD="senha" #ALTERAR PARA A SUA SENHA DO MYSQL
   DB_NAME="dadosestufa" #MANTER O NOME DO DATABASE
   ```
 
-  3. Caso algum problema ocorra durante a inicialização do flask, ou as seguintes dependências não sejam reconhecidas "Flask-MySQLdb" e/ou "python-dotenv", instale das seguintes formas:
+  3. Caso algum problema ocorra durante a inicialização do flask, ou a seguinte dependência não sejam reconhecida "mysql-connector", instale da seguinte forma:
   
   ```
-  python3 -m pip install Flask-MySQLdb==2.0.0
-  ```
-  
-  ```
-  python3 -m pip install python-dotenv==1.0.1
+  python3 -m pip install mysql-connector-python==8.4.0
   ```
   
   </details>
@@ -104,18 +101,23 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
 <details>
   <summary><b>Clique aqui</b></summary>
+  > _Com o Docker é possível fazer sua aplicação rodar em qualquer máquina, sendo usado apenas o Dockerfile e o Docker-compose.yml, por isso está a opção mais recomendada para seu projeto._
 
-  1. Acesse no terminal o diretório onde se encontra os arquivos Dockerfile e Dockercompose (diretório SRC)
+  1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Dockercompose (diretório SRC)
 
   2. Digite o comando para iniciar o container-docker
    ```
-   docker-compose up
+   docker-compose up --build
    ```
-   Nesse ponto, um link aparecerá no terminal, você deve copiar e colar esse link no seu navegador
+  
+  3. Depois de um tempo dado para inicialização do conteiner, irá aparecer no terminal uma mensagem avisando que ele está rodando. Após isto, basta escrever na busca do seu navegador o seguinte comando
+   ```
+   localhost:5001/
+   ```
 
-  3. Após usar a aplicação basta fechar o container-docker digitando o seguinte comando no terminal
+  4. Após usar a aplicação basta fechar o container-docker executando o seguinte comando no terminal
    ```
-   docker-compose down
+   Ctrl + C
    ```
 
 </details>
