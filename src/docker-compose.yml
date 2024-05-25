@@ -1,35 +1,35 @@
-version: '3.8'
-
+version: '3'
 services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD:   # Alterar a sua senha root do MYSQL
+    ports:
+      - "3307:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db/sql/bdAPI.sql:/docker-entrypoint-initdb.d/bdAPI.sql 
+    networks:
+      - internet
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   app:
     build: .
-    links:
-      - 'database'
     ports:
       - '5001:5000'
     depends_on:
-      - 'database'
-  database:
-    image: 'bitnami/mysql:latest'
-    container_name: 'smart-farming-mysql'
-    env_file:
-      - .env
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_DATABASE: ${DB_NAME}
+      db:
+        condition: service_healthy
     networks:
-      - app-network
-    volumes:
-      - db_data:/var/lib/mysql
-    ports:
-      - "3307:3306"
-
-networks:
-  app-network:
-    driver: bridge
+      - internet
 
 volumes:
-  db_data:
-    driver: local
+  db-data:
+
+networks:
+  internet:
+    driver: bridge
