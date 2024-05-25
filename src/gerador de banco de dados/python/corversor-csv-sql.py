@@ -33,7 +33,7 @@ with open(arquivo_csv, 'r') as csvfile:  #transforma tudo em uma só biblioteca
     reader = csv.DictReader(csvfile) 
     for linha in reader: 
         dados.append(linha)
-valores = str(dados_existentes[1:]).replace('{',"(").replace("}",")").replace("[","(").replace("]",")").replace("TerÃ§a","Terça").replace("SÃ¡bado","Sábado").replace("TerÃƒÂ§a","Terça").replace("(),","").replace("())","")
+valores = str(dados_existentes[1:]).replace('{',"(").replace("}",")").replace("[","(").replace("]",")").replace("TerÃ§a","Terça").replace("SÃ¡bado","Sábado").replace("TerÃƒÂ§a","Terça").replace("(),","").replace("())","").replace("SÃƒÂ¡bado","Sábado")
 #removedor de , para . do float
 
 #remove , e transforma em .
@@ -46,8 +46,10 @@ while x < 10:
      y = 0
      x = x+1
 #print(len(dados))
-
-
+#filtra data
+for k in range(10):
+    for j in range(13):
+        valores = valores.replace(f"'{k}/{j}/2023",f"'0{k}/{j}/2023")
 #geração de sql
 import os
 import sys
@@ -69,7 +71,7 @@ UmidadeAmbiente varchar(50),
 Temperatura varchar(50),
 VolumeAgua varchar(50));
 
-insert into dados (DiaSemana, Dia_Mes_Ano, Hora, UmidadeSolo, UmidadeAmbiente, Temperatura, VolumeAgua) values ({valoresnovos[0:-1]});
+insert into dados (DiaSemana, Dia_Mes_Ano, Hora, UmidadeSolo, UmidadeAmbiente, Temperatura, VolumeAgua) values ({valores[0:-1]});
 ALTER TABLE dados MODIFY UmidadeSolo Float;
 ALTER TABLE dados MODIFY UmidadeAmbiente Float;
 ALTER TABLE dados MODIFY Temperatura Float;
