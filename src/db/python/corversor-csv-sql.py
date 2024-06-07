@@ -6,60 +6,59 @@ diretorio_atual = Path(__file__).parent
 
 # Gerar o caminho completo do arquivo CSV
 arquivo_csv = str(diretorio_atual)[:-6] + "dados/dadosSensores_grafico.csv"
-dados = [] 
+dados = []
 
-with open(arquivo_csv, 'r+') as csvfile:
-    # Cria um objeto `reader` para ler as linhas existentes
+with open(arquivo_csv, 'r+', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile)
-
-    # Lê todas as linhas existentes e armazena em uma lista
     dados_existentes = [linha for linha in reader]
-    if dados_existentes[0]!=['DIA DA SEMANA', 'DATA', 'HORA', 'UMIDADE DO SOLO','UMIDADE DO AMBIENTE','TEMPERATURA','VOLUME DE ÁGUA EM L']:
-        # Reposiciona o cursor no início do arquivo
+    
+    if dados_existentes[0] != ['DIA DA SEMANA', 'DATA', 'HORA', 'UMIDADE DO SOLO', 'UMIDADE DO AMBIENTE', 'TEMPERATURA', 'VOLUME DE ÁGUA EM L']:
         csvfile.seek(0)
-
-    # Cria um objeto `writer` para escrever o cabeçalho
         writer = csv.writer(csvfile)
-
-   # Escreve o cabeçalho (lista de nomes de colunas)
-        writer.writerow(['DIA DA SEMANA', 'DATA', 'HORA', 'UMIDADE DO SOLO','UMIDADE DO AMBIENTE','TEMPERATURA','VOLUME DE ÁGUA EM L'])
-
-    # Escreve as linhas existentes de volta para o arquivo
+        writer.writerow(['DIA DA SEMANA', 'DATA', 'HORA', 'UMIDADE DO SOLO', 'UMIDADE DO AMBIENTE', 'TEMPERATURA', 'VOLUME DE ÁGUA EM L'])
         writer.writerows(dados_existentes)
 
-    
-
-with open(arquivo_csv, 'r') as csvfile:  #transforma tudo em uma só biblioteca
-    reader = csv.DictReader(csvfile) 
-    for linha in reader: 
+# Transformar tudo em uma só biblioteca
+with open(arquivo_csv, 'r', encoding='utf-8') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for linha in reader:
         dados.append(linha)
-valores = str(dados_existentes[1:]).replace('{',"(").replace("}",")").replace("[","(").replace("]",")").replace("TerÃ§a","Terca").replace("SÃ¡bado","Sabado").replace("TerÃƒÂ§a","Terca").replace("SÃƒÂ¡bado","Sabado").replace("(),","").replace("())","").replace("  "," ")
-#removedor de , para . do float
 
-#remove , e transforma em .
+# Processar os valores
+valores = str(dados_existentes[1:]).replace('{', "(").replace("}", ")").replace("[", "(").replace("]", ")").replace("TerÃ§a", "Terca").replace("SÃ¡bado", "Sabado").replace("TerÃƒÂ§a", "Terca").replace("SÃƒÂ¡bado", "Sabado").replace("(),", "").replace("())", "").replace("  ", " ")
+
+# Conversão de vírgulas em pontos para números de ponto flutuante
 x = 0
 y = 0
 while x < 10:
-    valores = valores.replace(f'{x},{y}',f'{x}.{y}')
-    y = y+1
+    valores = valores.replace(f'{x},{y}', f'{x}.{y}')
+    y = y + 1
     if y == 10:
-     y = 0
-     x = x+1
-#print(len(dados))
+        y = 0
+        x = x + 1
 
-for k in range(10):
-    for j in range(13):
-        valores = valores.replace(f"'{k}/{j}/20",f"'0{k}/{j}/20")
-print (valores[2:-2])
+# Adicionar zero inicial nas datas
+for k in range(1, 10):
+    for j in range(1, 10):
+        valores = valores.replace(f"'{k}/{j}/20", f"'0{k}/0{j}/20")
+    for j in range(10, 13):
+        valores = valores.replace(f"'{k}/{j}/20", f"'0{k}/{j}/20")
+for k in range(10, 32):
+    for j in range(1, 10):
+        valores = valores.replace(f"'{k}/{j}/20", f"'{k}/0{j}/20")
 
+# Corrigir a formatação de valores para garantir que todos estejam entre parênteses
+valores = valores[2:-2]  # Remove os colchetes externos da lista
+valores_lista = valores.split("), (")
+valores_lista = [f"({v})" for v in valores_lista]
+valores = ", ".join(valores_lista)
 
-
-#geração de sql
+# Gerar arquivo SQL
 import os
 import sys
 
 arquivo_nome = "bdAPI.sql"
-diretorio_saida = os.path.join(os.path.expanduser("~"), str(diretorio_atual)[:-6]+"sql")
+diretorio_saida = os.path.join(os.path.expanduser("~"), str(diretorio_atual)[:-6] + "sql")
 arquivo_completo = os.path.join(diretorio_saida, arquivo_nome)
 
 conteudo_sql = f"""
@@ -75,24 +74,18 @@ UmidadeAmbiente varchar(50),
 Temperatura varchar(50),
 VolumeAgua varchar(50));
 
-insert into dados (DiaSemana, Dia_Mes_Ano, Hora, UmidadeSolo, UmidadeAmbiente, Temperatura, VolumeAgua) values {valores[2:-2]};
+insert into dados (DiaSemana, Dia_Mes_Ano, Hora, UmidadeSolo, UmidadeAmbiente, Temperatura, VolumeAgua) values {valores};
 ALTER TABLE dados MODIFY UmidadeSolo Float;
 ALTER TABLE dados MODIFY UmidadeAmbiente Float;
 ALTER TABLE dados MODIFY Temperatura Float;
 ALTER TABLE dados MODIFY VolumeAgua Float;
-
-
 """
 
 try:
-    with open(arquivo_completo, "w") as arquivo:
+    with open(arquivo_completo, "w", encoding='utf-8') as arquivo:
         arquivo.write(conteudo_sql)
 except Exception as e:
     print(f"Erro ao criar arquivo: {e}")
     sys.exit(1)
 
 print(f"Arquivo SQL criado com sucesso: {arquivo_completo}")
-
-
-
-
