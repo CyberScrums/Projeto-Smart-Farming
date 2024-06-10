@@ -299,6 +299,45 @@ input[type="file"] {
     font-size: 25px;
 }
 
+.custom-modal .modal-content {
+    background-color: #313131;
+    border: 2px solid #00ff59; 
+    color: #ffffff; 
+    border-radius: 10px; 
+}
+
+.custom-modal .modal-header {
+    background-color: #313131; 
+    border-bottom: 2px solid #00ff59; 
+}
+
+.custom-modal .modal-footer {
+    background-color: #313131; 
+    border-top: 2px solid #00ff59; 
+}
+
+.custom-modal .btn-secondary {
+    background-color: #00ff59;
+    border-color: #00ff59; 
+    color: #313131;
+}
+
+.custom-modal .btn-secondary:hover {
+    background-color: #008042; 
+    border-color: #00ff59; 
+    color: #313131; 
+}
+
+.custom-modal .modal-title {
+    color: #00ff59; 
+}
+
+.custom-modal .modal-body {
+    background-color: #313131; 
+    color: #00ff59;
+    border-bottom: 2px solid #00ff59;
+    padding: 20px;
+}
 
 
 
