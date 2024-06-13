@@ -329,15 +329,12 @@ document.addEventListener("DOMContentLoaded", function() {
     async function fetchMediasByDate(date) {
         try {
             const response = await fetch(`/api/mediasdata?data=${date}`);
-            if (!response.ok) {
+            const data = await response.json();
+    
+            if (!response.ok || data.error) {
                 throw new Error('Erro ao buscar dados');
             }
-            const data = await response.json();
-
-            if (data.error) {
-                alert(data.error);
-                return;
-            }
+    
             const temperaturaMedia = parseFloat(data.TemperaturaMedia).toFixed(1);
             const umidadeSoloMedia = parseFloat(data.UmidadeSoloMedia).toFixed(1);
             const umidadeAmbienteMedia = parseFloat(data.UmidadeAmbienteMedia).toFixed(1);
@@ -348,9 +345,16 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
         } catch (error) {
             console.error('Erro:', error);
-            alert('Erro ao buscar dados para a data selecionada.');
+            if (error.message === 'Erro ao buscar dados') {
+                console.log('Dados não encontrados. Exibindo modal de erro.');
+                $('#errorModal').modal('show');
+            } else {
+                alert('Erro ao buscar dados para a data selecionada.');
+            }
         }
     }
+    
+      
 });
 
 
