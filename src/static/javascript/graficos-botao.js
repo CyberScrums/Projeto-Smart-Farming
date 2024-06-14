@@ -1,48 +1,48 @@
 let temperatureChart, soilMoistureChart, humidityChart, waterVolumeChart;
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("uploadBtn").addEventListener("change", function(event) {
-        const file = event.target.files[0];  
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("uploadBtn").addEventListener("change", function (event) {
+        const file = event.target.files[0];
         const reader = new FileReader();
 
-        reader.onload = function(e) {
-            const csvData = e.target.result; 
-            const rows = csvData.split("\n");  
+        reader.onload = function (e) {
+            const csvData = e.target.result;
+            const rows = csvData.split("\n");
 
-            const labels = [];  
-            const temperatureData = []; 
-            const soilMoistureData = [];  
-            const humidityData = [];  
-            const waterVolumeData = [];  
+            const labels = [];
+            const temperatureData = [];
+            const soilMoistureData = [];
+            const humidityData = [];
+            const waterVolumeData = [];
 
-            let fixedDate = "";  
+            let fixedDate = "";
             rows.forEach((row, index) => {
-                if (index === 0) return;  
-                const columns = row.split(",");  
-                if (columns.length >= 7) {  
-                    const timeLabel = `${columns[1]} ${columns[2]}`;  
-                    labels.push(timeLabel);  
+                if (index === 0) return;
+                const columns = row.split(",");
+                if (columns.length >= 7) {
+                    const timeLabel = `${columns[1]} ${columns[2]}`;
+                    labels.push(timeLabel);
 
-                    if (!fixedDate) {  
-                        fixedDate = columns[1];  
+                    if (!fixedDate) {
+                        fixedDate = columns[1];
                     }
 
-                    temperatureData.push(parseFloat(columns[5].replace(/"/g, '')));  
-                    soilMoistureData.push(parseFloat(columns[3]));  
-                    humidityData.push(parseFloat(columns[4])); 
-                    waterVolumeData.push(parseFloat(columns[6]));  
+                    temperatureData.push(parseFloat(columns[5].replace(/"/g, '')));
+                    soilMoistureData.push(parseFloat(columns[3]));
+                    humidityData.push(parseFloat(columns[4]));
+                    waterVolumeData.push(parseFloat(columns[6]));
                 }
             });
 
             updateCharts(labels, temperatureData, soilMoistureData, humidityData, waterVolumeData);
-        }; 
+        };
 
-        reader.readAsText(file);  
-    }); 
+        reader.readAsText(file);
+    });
 });
 
 // Dados do banco de dados
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
     const response = await fetch('/api/dados');
     const data = await response.json();
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     updateCharts(labels, temperatureData, soilMoistureData, humidityData, waterVolumeData);
 });
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     const response = await fetch('/api/medias');
     const data = await response.json();
 
@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
 
     $('#filtro-calendario').datepicker({
-        format: "dd/mm/yyyy", 
+        format: "dd/mm/yyyy",
         language: "pt-BR",
         autoclose: true,
         todayHighlight: true
-    }).on('changeDate', function(e) {
+    }).on('changeDate', function (e) {
         const selectedDate = e.format('dd/mm/yyyy');
         fetchMediasByDate(selectedDate);
         fetchDadosByDate(selectedDate);
@@ -112,7 +112,12 @@ document.addEventListener('DOMContentLoaded', async function() {
             document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
         } catch (error) {
             console.error('Erro:', error);
-            alert('Erro ao buscar dados para a data selecionada.');
+            if (error.message === 'Erro ao buscar dados') {
+                console.log('Dados não encontrados. Exibindo modal de erro.');
+                $('#errorModal').modal('show');
+            } else {
+                alert('Erro ao buscar dados para a data selecionada.');
+            }
         }
     }
 
@@ -120,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         try {
             const response = await fetch(`/api/dadosdata?data=${date}`);
             const data = await response.json();
-            
+
             if (data.error) {
                 alert(data.error);
                 return;
@@ -135,7 +140,12 @@ document.addEventListener('DOMContentLoaded', async function() {
             updateCharts(labels, temperatureData, soilMoistureData, humidityData, waterVolumeData);
         } catch (error) {
             console.error('Erro:', error);
-            alert('Erro ao buscar dados para a data selecionada.');
+            if (error.message === 'Erro ao buscar dados') {
+                console.log('Dados não encontrados. Exibindo modal de erro.');
+                $('#errorModal').modal('show');
+            } else {
+                alert('Erro ao buscar dados para a data selecionada.');
+            }
         }
     }
 
@@ -162,7 +172,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     mode: 'index',
                     intersect: false,
                     callbacks: {
-                        label: function(context) {
+                        label: function (context) {
                             return `${context.dataset.label}: ${context.parsed.y}`;
                         },
                     },
