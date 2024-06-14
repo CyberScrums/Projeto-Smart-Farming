@@ -1,3 +1,5 @@
+let temperatureChart, soilMoistureChart, humidityChart, waterVolumeChart;
+
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("uploadBtn").addEventListener("change", function(event) {
         const file = event.target.files[0];  
@@ -25,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         fixedDate = columns[1];  
                     }
 
-
                     temperatureData.push(parseFloat(columns[5].replace(/"/g, '')));  
                     soilMoistureData.push(parseFloat(columns[3]));  
                     humidityData.push(parseFloat(columns[4])); 
@@ -33,130 +34,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
-            const commonOptions = {
-                scales: {
-                    x: {
-                        type: "category", 
-                        ticks: {
-                            color: "white",  
-                            maxTicksLimit: 7, 
-                        },
-                    },
-                    y: {
-                        beginAtZero: true, 
-                        ticks: {
-                            color: "white",  
-                        },
-                    },
-                },
-                plugins: {
-                    tooltip: {
-                        mode: 'nearest',  
-                        intersect: false, 
-                        callbacks: {
-                            label: function(context) {
-                                return `Valor: ${context.parsed.y}`; 
-                            },
-                        },
-                    },
-                    legend: {
-                        display: true,  
-                        labels: {
-                            color: "white",  
-                        },
-                    },
-                    title: {
-                        display: true,  
-                        color: "white",
-                    },
-                },
-            };
-
-            
-            const ctx1 = document.getElementById("temperature-chart").getContext("2d");
-            new Chart(ctx1, {
-                type: "line",
-                data: {
-                    labels: labels, 
-                    datasets: [
-                        {
-                            label: "Temperatura (°C)",
-                            data: temperatureData,  
-                            borderColor: "rgba(255,255,51, 1)",  
-                            backgroundColor: "rgba(255,255,51, 0.6)",  
-                            fill: true,  
-                            pointRadius: 0,  
-                        },
-                    ],
-                },
-                options: commonOptions,
-            });
-
-            const ctx2 = document.getElementById("soil-moisture-chart").getContext("2d");
-            new Chart(ctx2, {
-                type: "line",
-                data: {
-                    labels: labels,  
-                    datasets: [
-                        {
-                            label: "Umidade do Solo (%)",
-                            data: soilMoistureData, 
-                            borderColor: "rgba(255,51,51, 1)",
-                            backgroundColor: "rgba(255,51,51, 0.6)",
-                            fill: true, 
-                            pointRadius: 0,
-                        },
-                    ],
-                },
-                options: commonOptions,
-            });
-
-            const ctx3 = document.getElementById("humidity-chart").getContext("2d");
-            new Chart(ctx3, {
-                type: "line",
-                data: {
-                    labels: labels, 
-                    datasets: [
-                        {
-                            label: "Umidade do Ambiente (%)",
-                            data: humidityData, 
-                            borderColor: "rgba(122,172,33, 1)",
-                            backgroundColor: "rgba(122,172,33, 0.6)",
-                            fill: true, 
-                            pointRadius: 0,
-                        },
-                    ],
-                },
-                options: commonOptions,
-            });
-
-            const ctx4 = document.getElementById("water-volume-chart").getContext("2d");
-            new Chart(ctx4, {
-                type: "line",
-                data: {
-                    labels: labels,
-                    datasets: [
-                        {
-                            label: "Volume de Água (Litros)",
-                            data: waterVolumeData, 
-                            borderColor: "rgba(0,191,255, 1)",  
-                            backgroundColor: "rgba(0,191,255, 0.6)",
-                            fill: true,  
-                            pointRadius: 0,
-                        },
-                    ],
-                },
-                options: commonOptions,
-            });
-
+            updateCharts(labels, temperatureData, soilMoistureData, humidityData, waterVolumeData);
         }; 
 
         reader.readAsText(file);  
     }); 
 });
 
-//banco de dados
-
+// Dados do banco de dados
 document.addEventListener("DOMContentLoaded", async function() {
     const response = await fetch('/api/dados');
     const data = await response.json();
@@ -167,7 +52,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     const humidityData = [];
     const waterVolumeData = [];
 
-    // Preenche os arrays com dados do banco de dados
     data.forEach((item) => {
         const timeLabel = `${item.Data} ${item.Hora}`;
         labels.push(timeLabel);
@@ -178,126 +62,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         waterVolumeData.push(item.VolumeAgua);
     });
 
-    // Opções todos os gráficos
-    const commonOptions = {
-        scales: {
-            x: {
-                type: 'category',
-                ticks: {
-                    color: 'white',
-                    autoSkip: true,
-                    maxTicksLimit: 6.5,
-                },
-            },
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    color: 'white',
-                },
-            },
-        },
-        plugins: {
-            tooltip: {
-                mode: 'index',  // Tooltip exibe todos os valores relacionados ao eixo X
-                intersect: false,
-                callbacks: {
-                    label: function(context) {
-                        return `${context.dataset.label}: ${context.parsed.y}`;  // Exibe o rótulo e o valor
-                    },
-                },
-            },
-            legend: {
-                display: true,
-                labels: {
-                    color: '#00ff59',
-                },
-            },
-            title: {
-                display: true,
-                color: 'white',
-            },
-        },
-    };
-
-    // gráfico de temperatura
-    const ctx1 = document.getElementById("temperature-chart").getContext("2d");
-    new Chart(ctx1, {
-        type: "line",
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: "Temperatura (°C)",
-                    data: temperatureData,
-                    borderColor: "rgba(255,255,51, 1)",
-                    backgroundColor: "rgba(255,255,51, 0.6)",
-                    fill: true,
-                    pointRadius: 0,
-                },
-            ],
-        },
-        options: commonOptions,
-    });
-
-    // gráfico de umidade do solo
-    const ctx2 = document.getElementById("soil-moisture-chart").getContext("2d");
-    new Chart(ctx2, {
-        type: "line",
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: "Umidade do Solo (%)",
-                    data: soilMoistureData,
-                    borderColor: "rgba(255,51,51, 1)",
-                    backgroundColor: "rgba(255,51,51, 0.6)",
-                    fill: true,
-                    pointRadius: 0,
-                },
-            ],
-        },
-        options: commonOptions,
-    });
-
-    // gráfico de umidade do ambiente
-    const ctx3 = document.getElementById("humidity-chart").getContext("2d");
-    new Chart(ctx3, {
-        type: "line",
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: "Umidade do Ambiente (%)",
-                    data: humidityData,
-                    borderColor: "rgba(122,172,33, 1)",
-                    backgroundColor: "rgba(122,172,33, 0.6)",
-                    fill: true,
-                    pointRadius: 0,
-                },
-            ],
-        },
-        options: commonOptions,
-    });
-
-    // gráfico de volume de água
-    const ctx4 = document.getElementById("water-volume-chart").getContext("2d");
-    new Chart(ctx4, {
-        type: "line",
-                    data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: "Volume de Água (Litros)",
-                    data: waterVolumeData,
-                    borderColor: "rgba(0,191,255, 1)",
-                    backgroundColor: "rgba(0,191,255, 0.6)",
-                    fill: true,
-                    pointRadius: 0,
-                },
-            ],
-        },
-        options: commonOptions,
-    });
+    updateCharts(labels, temperatureData, soilMoistureData, humidityData, waterVolumeData);
 });
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -313,10 +78,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById('umidade-solo-media').textContent = `${umidadeSoloMedia} %`;
     document.getElementById('umidade-ambiente-media').textContent = `${umidadeAmbienteMedia} %`;
     document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-   
     $('#filtro-calendario').datepicker({
         format: "dd/mm/yyyy", 
         language: "pt-BR",
@@ -325,16 +87,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }).on('changeDate', function(e) {
         const selectedDate = e.format('dd/mm/yyyy');
         fetchMediasByDate(selectedDate);
+        fetchDadosByDate(selectedDate);
     });
+
     async function fetchMediasByDate(date) {
         try {
             const response = await fetch(`/api/mediasdata?data=${date}`);
-            const data = await response.json();
-    
-            if (!response.ok || data.error) {
+            if (!response.ok) {
                 throw new Error('Erro ao buscar dados');
             }
-    
+            const data = await response.json();
+
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
             const temperaturaMedia = parseFloat(data.TemperaturaMedia).toFixed(1);
             const umidadeSoloMedia = parseFloat(data.UmidadeSoloMedia).toFixed(1);
             const umidadeAmbienteMedia = parseFloat(data.UmidadeAmbienteMedia).toFixed(1);
@@ -345,16 +112,152 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('volume-agua-media').textContent = `${volumeAguaMedia} L`;
         } catch (error) {
             console.error('Erro:', error);
-            if (error.message === 'Erro ao buscar dados') {
-                console.log('Dados não encontrados. Exibindo modal de erro.');
-                $('#errorModal').modal('show');
-            } else {
-                alert('Erro ao buscar dados para a data selecionada.');
-            }
+            alert('Erro ao buscar dados para a data selecionada.');
         }
     }
-    
-      
+
+    async function fetchDadosByDate(date) {
+        try {
+            const response = await fetch(`/api/dadosdata?data=${date}`);
+            const data = await response.json();
+            
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+
+            const labels = data.map(d => d.Hora);
+            const temperatureData = data.map(d => d.Temperatura);
+            const soilMoistureData = data.map(d => d.UmidadeSolo);
+            const humidityData = data.map(d => d.UmidadeAmbiente);
+            const waterVolumeData = data.map(d => d.VolumeAgua);
+
+            updateCharts(labels, temperatureData, soilMoistureData, humidityData, waterVolumeData);
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao buscar dados para a data selecionada.');
+        }
+    }
+
+    function updateCharts(labels, temperatureData, soilMoistureData, humidityData, waterVolumeData) {
+        const commonOptions = {
+            scales: {
+                x: {
+                    type: 'category',
+                    ticks: {
+                        color: 'white',
+                        autoSkip: true,
+                        maxTicksLimit: 6.5,
+                    },
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'white',
+                    },
+                },
+            },
+            plugins: {
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.dataset.label}: ${context.parsed.y}`;
+                        },
+                    },
+                },
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#00ff59',
+                    },
+                },
+                title: {
+                    display: true,
+                    color: 'white',
+                },
+            },
+        };
+
+        if (temperatureChart) temperatureChart.destroy();
+        const ctx1 = document.getElementById("temperature-chart").getContext("2d");
+        temperatureChart = new Chart(ctx1, {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Temperatura (°C)",
+                        data: temperatureData,
+                        borderColor: "rgba(255,255,51, 1)",
+                        backgroundColor: "rgba(255,255,51, 0.6)",
+                        fill: true,
+                        pointRadius: 0,
+                    },
+                ],
+            },
+            options: commonOptions,
+        });
+
+        if (soilMoistureChart) soilMoistureChart.destroy();
+        const ctx2 = document.getElementById("soil-moisture-chart").getContext("2d");
+        soilMoistureChart = new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Umidade do Solo (%)",
+                        data: soilMoistureData,
+                        borderColor: "rgba(255,51,51, 1)",
+                        backgroundColor: "rgba(255,51,51, 0.6)",
+                        fill: true,
+                        pointRadius: 0,
+                    },
+                ],
+            },
+            options: commonOptions,
+        });
+
+        if (humidityChart) humidityChart.destroy();
+        const ctx3 = document.getElementById("humidity-chart").getContext("2d");
+        humidityChart = new Chart(ctx3, {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Umidade do Ambiente (%)",
+                        data: humidityData,
+                        borderColor: "rgba(122,172,33, 1)",
+                        backgroundColor: "rgba(122,172,33, 0.6)",
+                        fill: true,
+                        pointRadius: 0,
+                    },
+                ],
+            },
+            options: commonOptions,
+        });
+
+        if (waterVolumeChart) waterVolumeChart.destroy();
+        const ctx4 = document.getElementById("water-volume-chart").getContext("2d");
+        waterVolumeChart = new Chart(ctx4, {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Volume de Água (Litros)",
+                        data: waterVolumeData,
+                        borderColor: "rgba(0,191,255, 1)",
+                        backgroundColor: "rgba(0,191,255, 0.6)",
+                        fill: true,
+                        pointRadius: 0,
+                    },
+                ],
+            },
+            options: commonOptions,
+        });
+    }
 });
-
-
