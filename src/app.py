@@ -72,8 +72,6 @@ def get_dadosdata():
         cursor.close()
         conn.close()
 
-        if not resultados:
-            return jsonify({'error': 'Dados para os gráficos não encontrados'}), 404
 
         dados = [{
             'DiaSemana': row[0],
@@ -137,7 +135,6 @@ def get_mediasdata():
         return jsonify({'error': f"Erro: {err}"}), 500
     
     
-app.logger.debug("Mensagem de depuração aqui")
 
 
 if __name__ == "__main__":
