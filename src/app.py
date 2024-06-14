@@ -4,8 +4,8 @@ import mysql.connector
 app = Flask(__name__)
 
 db_config = {
-    'user': 'usuario', #ALTERAR PARA SEU USUÁRIO NO MYSQL
-    'password': 'senha', #ALTERAR PARA A SUA SENHA NO MYSQL
+    'user': 'USUARIO', #ALTERAR PARA SEU USUÁRIO NO MYSQL
+    'password': 'SENHA', #ALTERAR PARA A SUA SENHA NO MYSQL
     'host': 'db', 
 }
 
@@ -57,6 +57,38 @@ def get_dados():
     except mysql.connector.Error as err:
         return jsonify({'error': f"Erro: {err}"}), 500
 
+
+@app.route("/api/dadosdata", methods=["GET"])
+def get_dadosdata():
+    data = request.args.get('data')
+    if not data:
+        return jsonify({'error': 'Data não fornecida'}), 400
+    try:
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor()
+        cursor.execute("use DadosEstufa;")
+        cursor.execute("SELECT DiaSemana, Dia_Mes_Ano, Hora, Temperatura, UmidadeSolo, UmidadeAmbiente, VolumeAgua FROM dados WHERE Dia_Mes_Ano = %s", (data,))
+        resultados = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        if not resultados:
+            return jsonify({'error': 'Dados para os gráficos não encontrados'}), 404
+
+        dados = [{
+            'DiaSemana': row[0],
+            'Data': row[1],
+            'Hora': row[2],
+            'Temperatura': row[3],
+            'UmidadeSolo': row[4],
+            'UmidadeAmbiente': row[5],
+            'VolumeAgua': row[6],
+        } for row in resultados]
+        return jsonify(dados)
+    except mysql.connector.Error as err:
+        return jsonify({'error': f"Erro: {err}"}), 500
+
+
 @app.route("/api/medias", methods=["GET"])
 def get_medias():
     try:
@@ -94,7 +126,7 @@ def get_mediasdata():
         conn.close()
 
         if not medias or all(m is None for m in medias):
-            return jsonify({'error': 'Dados não encontrados para a data fornecida'}), 404
+            return jsonify({'error': 'Dados para média não encontrados'}), 404
         return jsonify({
             'TemperaturaMedia': medias[0],
             'UmidadeSoloMedia': medias[1],
@@ -103,6 +135,10 @@ def get_mediasdata():
         })
     except mysql.connector.Error as err:
         return jsonify({'error': f"Erro: {err}"}), 500
+    
+    
+app.logger.debug("Mensagem de depuração aqui")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
