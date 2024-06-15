@@ -18,7 +18,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
 
   Para clonar o projeto e utilizá-lo em seu computador, siga os seguintes passos:
   
-  1. Crie uma pasta onde deseja armazenar nosso projeto, e então abra-a e clique na url da pasta, ou então utilize o atalho `Ctrl+L` para selecionar a url, como demonstrado no exemplo abaixo 👇<br> <img src="https://cdn.discordapp.com/attachments/1217604924402303037/1227225379429810258/imagem_2024-04-09_085515681.png?ex=6627a1b3&is=66152cb3&hm=28b47e4a797002509bbf01d3ee8777bf3f4ce11a03a77eeadab62122c38f1b24&">
+  1. Crie uma pasta onde deseja armazenar nosso projeto, e então abra-a e clique na url da pasta, ou então utilize o atalho `Ctrl+L` para selecionar a url.
   
   > _Obs.: Caso você esteja no LINUX, a parte de escrever "cmd" não irá funcionar, então clique com o botão direito na pasta que você criou e selecione a opção "Abrir no terminal"_
 
@@ -61,11 +61,18 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
   1. Primeiramente, no seu MySQL Workbench selecione a opção de abrir o Script bdAPI.sql (localizado na pasta SQL dentro de "Gerador de Banco de Dados") e Execute para criar o Banco de Dados, selecionando uma figura de Trovão que é responsavel por rodar todo o script.
   2. Antes de inicializar a aplicação verifique se as credênciais de acesso, disponíveis dentro da pasta "src" no arquivo app.py, estão de acordo com as definições da sua instância MySQL.
 
+  Caso opte por rodar em Docker
   ```
-  DB_HOST="db" #MANTER O NOME DO HOST 
-  DB_USER="usuário" #NOME DO USUÁRIO PADRÃO DO MYSQL 
-  DB_PASSWORD="senha" #ALTERAR PARA A SUA SENHA DO MYSQL
-  DB_NAME="dadosestufa" #MANTER O NOME DO DATABASE
+  'user': 'USUARIO', #ALTERAR PARA SEU USUÁRIO NO MYSQL
+  'password': 'SENHA', #ALTERAR PARA A SUA SENHA NO MYSQL
+  'host': 'db', 
+  ```
+  
+  Caso opte por rodar em Flask
+  ```
+  'user': 'USUARIO', #ALTERAR PARA SEU USUÁRIO NO MYSQL
+  'password': 'SENHA', #ALTERAR PARA A SUA SENHA NO MYSQL
+  'host': 'localhost', 
   ```
 
   3. Caso algum problema ocorra durante a inicialização do flask, ou a seguinte dependência não sejam reconhecida "mysql-connector", instale da seguinte forma:
@@ -104,7 +111,7 @@ Para o funcionamento do nosso sistema, você precisara das seguintes tecnologias
   
   > _Com o Docker é possível fazer sua aplicação rodar em qualquer máquina, sendo usado apenas o Dockerfile e o Docker-compose.yml, por isso está a opção mais recomendada para seu projeto._
 
-  1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Dockercompose (diretório SRC)
+  1. Acesse o terminal no diretório onde se encontra os arquivos Dockerfile e Docker-compose.yml (diretório SRC)
 
   2. Digite o comando para iniciar o container-docker
    ```
