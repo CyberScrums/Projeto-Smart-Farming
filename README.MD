@@ -6,7 +6,7 @@
 
 
 
-###  ⏳ Status do projeto: 3/4 Sprint
+###  ⏳ Status do projeto: 4/4 Sprint ✅
     
 
 ## 📑 Sumário
@@ -21,27 +21,27 @@
 
 ## 💻 Tecnologias utilizadas <a name="tecnologias"></a>
 <div align="center">
-<img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Microsoft_Teams-6264A7?style=for-the-badge&logo=microsoft-teams&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Python-00000?style=for-the-badge&logo=Python&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Jupyter-00000?style=for-the-badge&logo=Jupyter&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Bootstrap-00000?style=for-the-badge&logo=Bootstrap&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Pandas-00000?style=for-the-badge&logo=Pandas&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/MySQL-0000?style=for-the-badge&logo=MySQL&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/Docker-0000?style=for-the-badge&logo=Docker&logoColor=black&color=FFC300">
-<img src="https://img.shields.io/badge/JavaScript-0000?style=for-the-badge&logo=javascript&logoColor=black&color=FFC300">
+<img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Microsoft_Teams-6264A7?style=for-the-badge&logo=microsoft-teams&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Python-00000?style=for-the-badge&logo=Python&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Jupyter-00000?style=for-the-badge&logo=Jupyter&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Bootstrap-00000?style=for-the-badge&logo=Bootstrap&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Pandas-00000?style=for-the-badge&logo=Pandas&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/MySQL-0000?style=for-the-badge&logo=MySQL&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/Docker-0000?style=for-the-badge&logo=Docker&logoColor=black&color=FFc55">
+<img src="https://img.shields.io/badge/JavaScript-0000?style=for-the-badge&logo=javascript&logoColor=black&color=FFc55">
 
 
 </div>
 
 ## 📌 MVP <a name="mvp"><a>
-<img src="https://github.com/CyberScrums/Projeto-Smart-Farming/blob/main/docs/sprint/sprint_3.gif">
+<img src="https://github.com/CyberScrums/Projeto-Smart-Farming/blob/main/docs/sprint/sprint_4.gif">
 
 ## 📜 Product Backlog <a name="backlog"><a>
 
@@ -61,15 +61,13 @@
 | 13    | 3      | 5     | 2.2   | Média Umidade do Ambiente      |  ✅    |
 | 14    | 3      | 5     | 2.3   | Média Temperatura              |  ✅    |
 | 15    | 3      | 5     | 2.4   | Média do Volume da Água        |  ✅    |
-| 16    | 4      | 3     | 1     | Alerta                         |        |
+| 16    | 4      | 3     | 1     | Alerta                         |  ✅    |
 
 ## 👥 Equipe <a name="equipe"><a>
 |  Foto        |     Função    |           Nome            |                            LinkedIn                            |                      GitHub                       |
 | :----: | :-----------: | :-----------------------: | :------------------------------------------------------------: | :-----------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/160733714?v=4" width="75px"> | Scrum Master  | Eduardo da Silva Fontes | [Linkedin](https://www.linkedin.com/in/eduardo-da-silva-fontes/)  | [GitHub](https://github.com/DuuhZero)           |
 | <img src="https://avatars.githubusercontent.com/u/162118889?v=4" width="75px"> | Product Owner | Eduardo Kuwahara Jr. |  [Linkedin](https://www.linkedin.com/in/eduardo-kuwahara-3b2267303/)  | [GitHub](https://github.com/EduardoKuwahara) |
-| <img src="https://avatars.githubusercontent.com/u/162122368?v=4" width="75px">   | Dev Team | Daniel Porto Renó Sás Piloto |  [Linkedin](https://www.linkedin.com/in/daniel-piloto-98b717226/)  | [GitHub](https://github.com/danprsp)          |
-| <img src="https://avatars.githubusercontent.com/u/73435790?v=4" width="75px"> | Dev Team      | Fábio Kenjy Sato Lucas |  [Linkedin](https://www.linkedin.com/in/fabio-kenjy/)  |  [GitHub](https://github.com/FabioKenjjy)  |
 | <img src="https://avatars.githubusercontent.com/u/119539664?v=4" width="75px">|Dev Team| João Pedro França Alves de Souza |  [Linkedin](https://www.linkedin.com/in/joão-pedro-frança-alves-de-souza-8700a62b3/)  | [GitHub](https://github.com/jofran2001)  |
 | <img src="https://avatars.githubusercontent.com/u/162117916?v=4" width="75px"> | Dev Team      | João Vitor Rossi Ferreira |  [Linkedin](https://www.linkedin.com/in/joão-rossi-7311a0301/)  | [GitHub](https://github.com/rossilindo)    |
 | <img src="https://avatars.githubusercontent.com/u/162117908?v=4" width="75px"> | Dev Team      | Paulo Henrique Martins de Almeida |  [Linkedin](https://www.linkedin.com/in/paulo-almeida-3102452a7/)  | [GitHub](https://github.com/pauloalmeida46)    |
